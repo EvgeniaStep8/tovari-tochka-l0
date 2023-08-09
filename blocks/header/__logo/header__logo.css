@@ -1,0 +1,18 @@
+.header__logo {
+  max-width: 120px;
+  color: var(--system-white-color);
+  font-family: Segoe UI;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 24px;
+  font-variant: all-small-caps;
+  letter-spacing: 0.56px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .header__logo {
+    max-width: 200px;
+    font-size: 26px;
+    letter-spacing: 0.52px;
+  }
+}

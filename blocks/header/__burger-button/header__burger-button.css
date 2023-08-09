@@ -1,0 +1,20 @@
+.header__burger-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid var(--button-border-color);
+  background-image: url("../../../images/burger-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 16px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .header__burger-button {
+    border: none;
+    width: 28px;
+    height: 28px;
+    background-image: url("../../../images/burger-button-mob.svg");
+    margin-right: 20px;
+  }
+}

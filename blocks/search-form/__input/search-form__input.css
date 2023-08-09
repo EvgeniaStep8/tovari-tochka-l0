@@ -1,0 +1,15 @@
+.search-form__input {
+  background: initial;
+  flex: 1 0 0;
+  border: none;
+  color: var(--system-white-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  outline: none;
+}
+
+.search-form__input::placeholder {
+  color: var(--system-white-color);
+  opacity: 0.5;
+}

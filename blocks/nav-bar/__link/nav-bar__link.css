@@ -1,0 +1,8 @@
+.nav-bar__link {
+  position: relative;
+  margin-right: 43px;
+}
+
+.nav-bar__link:last-child {
+  margin-right: 0;
+}

@@ -1,0 +1,14 @@
+.header__search-button {
+  display: none;
+  width: 28px;
+  height: 28px;
+  background-image: url("../../../images/search-button.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 767.98px) {
+  .header__search-button {
+    display: block;
+  }
+}

@@ -1,4 +1,28 @@
 @import url("./vendor/normalize.css");
 @import url("./vendor/fonts.css");
 @import url("./vendor/common.css");
+/* page */
 @import url("./blocks/page/page.css");
+/* text */
+@import url("./blocks//text/text.css");
+/* button */
+@import url("./blocks/button/button.css");
+/* link*/
+@import url("./blocks/link/link.css");
+/* header */
+@import url("./blocks/header/header.css");
+@import url("./blocks/header/__container/header__container.css");
+@import url("./blocks/header/__burger-button/header__burger-button.css");
+@import url("./blocks/header/__logo/header__logo.css");
+@import url("./blocks/header/__search-button/header__search-button.css");
+@import url("./blocks/header/__search-form/header__search-form.css");
+/* search-form */
+@import url("./blocks/search-form/search-form.css");
+@import url("./blocks/search-form/__input/search-form__input.css");
+@import url("./blocks/search-form/__search-form__submit/search-form__submit.css");
+/* nav-bar */
+@import url("./blocks/nav-bar/nav-bar.css");
+@import url("./blocks/nav-bar/__link/nav-bar__link.css");
+@import url("./blocks/nav-bar/__icon/nav-bar__icon.css");
+@import url("./blocks/nav-bar/__text/nav-bar__text.css");
+@import url("./blocks/nav-bar/__info/nav-bar__info.css");

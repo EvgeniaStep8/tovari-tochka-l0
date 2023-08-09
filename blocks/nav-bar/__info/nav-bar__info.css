@@ -1,0 +1,13 @@
+.nav-bar__info {
+  position: absolute;
+  top: -3px;
+  right: 5px;
+  transform: rotate(0.074deg);
+  padding: 0 5px;
+  border-radius: 16px;
+  background: var(--system-red-color);
+  color: var(--system-white-color);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+}

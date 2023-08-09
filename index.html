@@ -6,5 +6,36 @@
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <title>Товары и точка</title>
   </head>
-  <body class="page"></body>
+  <body class="page">
+    <header class="header">
+      <div class="header__container">
+        <button type="button" class="header__burger-button button"></button>
+        <p class="header__logo text">Товары и точка</p>
+      </div>
+      <button type="button" class="header__search-button button"></button>
+      <form class="search-form header__search-form">
+        <input type="text" placeholder="Я ищу..." class="search-form__input" />
+        <button type="submit" class="search-form__submit button"></button>
+      </form>
+      <nav class="nav-bar">
+        <a class="nav-bar__link link" href="#">
+          <img
+            src="./images/profile-icon.svg"
+            alt="Иконка профиля"
+            class="nav-bar__icon"
+          />
+          <p class="nav-bar__text text">Профиль</p>
+        </a>
+        <a class="nav-bar__link link" href="#">
+          <img
+            src="./images/cart-icon.svg"
+            alt="Иконка корзины"
+            class="nav-bar__icon"
+          />
+          <p class="nav-bar__text text">Корзина</p>
+          <p class="nav-bar__info text">3</p>
+        </a>
+      </nav>
+    </header>
+  </body>
 </html>

@@ -1,0 +1,7 @@
+.nav-bar__icon {
+  display: block;
+  margin: 0 auto;
+  max-width: 28px;
+  aspect-ratio: 1;
+  margin-bottom: 7px;
+}

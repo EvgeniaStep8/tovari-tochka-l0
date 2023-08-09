@@ -1,0 +1,6 @@
+.search-form__submit {
+  background-color: initial;
+  background-image: url("../../../images/search-icon.svg");
+  width: 24px;
+  height: 24px;
+}
