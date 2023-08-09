@@ -1,0 +1,14 @@
+:root {
+  --system-violet-color: #6725a8;
+  --system-white-color: #fff;
+  --system-gray-color: #a0a0a4;
+  --text-black-color: #000;
+  --system-magenta-color: #cb11ab;
+  --system-red-color: #f55123;
+  --system-green-color: #0cb477;
+  --translucent-white-color: rgba(255, 255, 255, 0.7);
+  --rulers-rulers-colors: rgba(0, 0, 0, 0.1);
+
+  --common-element-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+}
