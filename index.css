@@ -26,3 +26,9 @@
 @import url("./blocks/nav-bar/__icon/nav-bar__icon.css");
 @import url("./blocks/nav-bar/__text/nav-bar__text.css");
 @import url("./blocks/nav-bar/__info/nav-bar__info.css");
+/* content */
+@import url("./blocks/content/content.css");
+
+/* footer */
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/footer/__copyright/footer__copyright.css");

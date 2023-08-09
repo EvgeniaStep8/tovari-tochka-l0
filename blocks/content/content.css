@@ -1,0 +1,5 @@
+.content {
+  flex: 1 0 0;
+  background-color: var(--system-white-color);
+  border-radius: 24px;
+}
