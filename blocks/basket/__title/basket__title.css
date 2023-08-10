@@ -1,0 +1,19 @@
+.basket__title {
+  margin-top: 10px;
+  margin-bottom: 27px;
+  color: var(--text-black-color);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.28px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .basket__title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+  }
+}

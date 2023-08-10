@@ -1,0 +1,6 @@
+.rounded-container {
+  padding: 16px 24px 24px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  box-shadow: var(--common-element-shadow);
+}

@@ -1,0 +1,14 @@
+.content__container {
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 22px 24px 50px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+@media screen and (max-width: 767.98px) {
+  .content__container {
+    padding: 15px 0 39px;
+  }
+}

@@ -1,0 +1,11 @@
+.checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.checkbox__input:checked + span {
+  background: url("../../../images/checkbox-checked.svg") center no-repeat;
+}

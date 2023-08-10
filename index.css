@@ -9,6 +9,8 @@
 @import url("./blocks/button/button.css");
 /* link*/
 @import url("./blocks/link/link.css");
+/* rounded-container */
+@import url("./blocks/rounded-container/rounded-container.css");
 /* header */
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__container/header__container.css");
@@ -28,6 +30,17 @@
 @import url("./blocks/nav-bar/__info/nav-bar__info.css");
 /* content */
 @import url("./blocks/content/content.css");
+@import url("./blocks/content/__container/content__container.css");
+/* basket */
+@import url("./blocks/basket/basket.css");
+@import url("./blocks/basket/__title/basket__title.css");
+/* checkbox */
+@import url("./blocks/checkbox/checkbox.css");
+@import url("./blocks/checkbox/__input/checkbox__input.css");
+@import url("./blocks/checkbox/__visible-checkbox/checkbox__visible-checkbox.css");
+
+/*side-bar*/
+@import url("./blocks/side-bar/side-bar.css");
 
 /* footer */
 @import url("./blocks/footer/footer.css");
