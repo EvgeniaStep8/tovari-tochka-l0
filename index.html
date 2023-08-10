@@ -41,10 +41,65 @@
       <div class="content__container">
         <div class="basket">
           <h1 class="basket__title text">Корзина</h1>
-          <label class="checkbox">
-            <input type="checkbox" class="checkbox__input" />
-            <span class="checkbox__visible-checkbox"></span>
-          </label>
+          <section class="products">
+            <div class="products__header">
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" />
+                <span class="checkbox__visible-checkbox"></span>
+                <span class="checkbox__text">Выбрать все</span>
+              </label>
+              <button class="products__button button"></button>
+            </div>
+            <ul class="card-list list">
+              <li class="card">
+                <label class="checkbox card__checkbox">
+                  <input type="checkbox" class="checkbox__input" />
+                  <span class="checkbox__visible-checkbox"></span>
+                </label>
+                <img src="./images/product1.png" alt="" class="card__image" />
+                <div class="card__info">
+                  <p class="card__name text">Футболка UZcotton мужская</p>
+                  <div class="card__characteristics">
+                    <p class="card__text text">Цвет: белый</p>
+                    <p class="card__text text">Размер: 56</p>
+                  </div>
+                  <div class="card__providers list">
+                    <p class="card__provider text">Коледино WB</p>
+                    <p class="card__provider text">
+                      OOO Вайлдберриз
+                      <span class="card__provider-icon"></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="card__container">
+                  <div class="number">
+                    <button class="number__minus" type="button">-</button>
+                    <input type="number__input" min="0" value="1" readonly />
+                    <button class="number__plus" type="button">+</button>
+                  </div>
+                  <p class="card__remainder text">Осталось 2 шт.</p>
+                  <ul class="card__icons list">
+                    <li>
+                      <button
+                        type="button"
+                        class="card__icon card__icon_type_like"
+                      ></button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        class="card__icon card__icon_type_delete"
+                      ></button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card__price">
+                  <p class="card__new-price text">522 сом</p>
+                  <p class="card__old-price">1051 сом</p>
+                </div>
+              </li>
+            </ul>
+          </section>
         </div>
         <div class="side-bar rounded-container"></div>
       </div>

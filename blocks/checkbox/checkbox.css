@@ -1,3 +1,4 @@
 .checkbox {
   position: relative;
+  display: flex;
 }
