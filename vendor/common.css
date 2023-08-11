@@ -3,12 +3,17 @@
   --system-white-color: #fff;
   --system-gray-color: #a0a0a4;
   --text-black-color: #000;
+  --system-black-color: #000;
   --system-magenta-color: #cb11ab;
   --system-red-color: #f55123;
   --system-green-color: #0cb477;
+  --dark-system-coral-color: #ff3b30;
   --translucent-white-color: rgba(255, 255, 255, 0.7);
   --rulers-rulers-colors: rgba(0, 0, 0, 0.1);
+  --rulers-rulers-input-color: rgba(0, 0, 0, 0.2);
   --button-border-color: rgba(255, 255, 255, 0.45);
+  --background-smoky-color: #f6f6fa;
+  --background-white-color: #fff;
 
   --common-element-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
     0px 2px 10px 0px rgba(0, 0, 0, 0.15);

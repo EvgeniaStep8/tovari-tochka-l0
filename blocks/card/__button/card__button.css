@@ -1,0 +1,7 @@
+.card__button {
+  margin-right: 16px;
+}
+
+.card__button:last-of-type {
+  margin-right: 0;
+}

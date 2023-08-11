@@ -1,0 +1,7 @@
+.card__icon {
+  fill: var(--system-black-color);
+}
+
+.card__icon:hover {
+  fill: var(--system-red-color);
+}

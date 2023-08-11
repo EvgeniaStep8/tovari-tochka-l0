@@ -44,8 +44,13 @@
 /* products */
 @import url("./blocks/products/__header/products__header.css");
 @import url("./blocks/products/__button/products__button.css");
+/* counter */
+@import url("./blocks/counter/counter.css");
+@import url("./blocks/counter/__button/counter__button.css");
+@import url("./blocks/counter/__input/counter__input.css");
 /* card */
 @import url("./blocks/card/card.css");
+@import url("./blocks/card/_not-available/card_not-available.css");
 @import url("./blocks/card/__checkbox/card__checkbox.css");
 @import url("./blocks/card/__image/card__image.css");
 @import url("./blocks/card/__info/card__info.css");
@@ -53,16 +58,17 @@
 @import url("./blocks/card/__characteristics/card__characteristics.css");
 @import url("./blocks/card/__text/card__text.css");
 @import url("./blocks/card/__providers/card__providers.css");
+@import url("./blocks/card/__provider-container/card__provider-container.css");
 @import url("./blocks/card/__provider/card__provider.css");
-@import url("./blocks/card/__provider-icon/card__provider-icon.css");
+@import url("./blocks/card/__info-icon/card__info-icon.css");
 @import url("./blocks/card/__container/card__container.css");
 @import url("./blocks/card/__remainder/card__remainder.css");
 @import url("./blocks/card/__icons/card__icons.css");
+@import url("./blocks/card/__button/card__button.css");
 @import url("./blocks/card/__icon/card__icon.css");
-@import url("./blocks/card/__icon/_type/_delete/card__icon_type_delete.css");
-@import url("./blocks/card/__icon/_type/_like/card__icon_type_like.css");
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__new-price/card__new-price.css");
+@import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
 
 /*side-bar*/

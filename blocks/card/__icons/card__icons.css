@@ -1,0 +1,4 @@
+.card__icons {
+  display: flex;
+  justify-content: end;
+}
