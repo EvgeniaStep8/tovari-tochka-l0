@@ -41,8 +41,10 @@
 @import url("./blocks/checkbox/__input/checkbox__input.css");
 @import url("./blocks/checkbox/__visible-checkbox/checkbox__visible-checkbox.css");
 @import url("./blocks/checkbox/__text/checkbox__text.css");
+@import url("./blocks/checkbox/__text/_size/_small/checkbox__text_size_small.css");
 /* products */
 @import url("./blocks/products/__header/products__header.css");
+@import url("./blocks/products/__visible-checkbox/products__visible-checkbox.css");
 @import url("./blocks/products/__button/products__button.css");
 /* counter */
 @import url("./blocks/counter/counter.css");
@@ -52,6 +54,7 @@
 @import url("./blocks/card/card.css");
 @import url("./blocks/card/_not-available/card_not-available.css");
 @import url("./blocks/card/__checkbox/card__checkbox.css");
+@import url("./blocks/card/__visible-checkbox/card__visible-checkbox.css");
 @import url("./blocks/card/__image/card__image.css");
 @import url("./blocks/card/__info/card__info.css");
 @import url("./blocks/card/__name/card__name.css");
@@ -71,8 +74,33 @@
 @import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
 
+/* methods-pay */
+@import url("./blocks/methods-pay/methods-pay.css");
+@import url("./blocks/methods-pay/__icon/methods__icon.css");
+@import url("./blocks/methods-pay/__text/methods-pay__text.css");
+/* submit-button */
+@import url("./blocks/submit-button/submit-button.css");
 /*side-bar*/
 @import url("./blocks/side-bar/side-bar.css");
+@import url("./blocks/side-bar/__header/side-bar__header.css");
+@import url("./blocks/side-bar/__price/side-bar__price.css");
+@import url("./blocks/side-bar/__currency/side-bar__curency.css");
+@import url("./blocks/side-bar/__list/side-bar__list.css");
+@import url("./blocks/side-bar/__item/side-bar__item.css");
+@import url("./blocks/side-bar/__item-text/side-bar__item-text.css");
+@import url("./blocks/side-bar/__container/side-bar__container.css");
+@import url("./blocks/side-bar/__title/side-bar__title.css");
+@import url("./blocks/side-bar/__edit-button/side-bar__edit-button.css");
+@import url("./blocks/side-bar/__date/side-bar__date.css");
+@import url("./blocks/side-bar/__info/side-bar__info.css");
+@import url("./blocks/side-bar/__accent/side-bar__accent.css");
+@import url("./blocks/side-bar/__round-container/side-bar__round-container.css");
+@import url("./blocks/side-bar/__checkbox/side-bar__checkbox.css");
+@import url("./blocks/side-bar/__visible-checkbox/side-bar__visible-checkbox.css");
+@import url("./blocks/side-bar/__text/side-bar__text.css");
+@import url("./blocks/side-bar/__submit-button/side-bar__submit-button.css");
+@import url("./blocks/side-bar/__oferta/side-bar__oferta.css");
+@import url("./blocks/side-bar/__link/side-bar__link.css");
 
 /* footer */
 @import url("./blocks/footer/footer.css");

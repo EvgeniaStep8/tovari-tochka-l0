@@ -1,0 +1,9 @@
+.side-bar__edit-button {
+  width: 20px;
+  height: 20px;
+  background: url("../../../images/edit-icon.svg") center no-repeat;
+}
+
+.side-bar__edit-button:hover {
+  opacity: 0.7;
+}

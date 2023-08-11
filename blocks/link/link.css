@@ -1,6 +1,7 @@
 .link {
   text-decoration: none;
   cursor: pointer;
+  color: var(--text-black-color);
 }
 
 .link:hover {

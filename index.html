@@ -45,7 +45,9 @@
             <div class="products__header">
               <label class="checkbox">
                 <input type="checkbox" class="checkbox__input" />
-                <span class="checkbox__visible-checkbox"></span>
+                <span
+                  class="checkbox__visible-checkbox products__visible-checkbox"
+                ></span>
                 <span class="checkbox__text">Выбрать все</span>
               </label>
               <button class="products__button button"></button>
@@ -54,7 +56,9 @@
               <li class="card">
                 <label class="checkbox card__checkbox">
                   <input type="checkbox" class="checkbox__input" />
-                  <span class="checkbox__visible-checkbox"></span>
+                  <span
+                    class="checkbox__visible-checkbox card__visible-checkbox"
+                  ></span>
                 </label>
                 <img src="./images/product1.png" alt="" class="card__image" />
                 <div class="card__info">
@@ -154,7 +158,115 @@
             </ul>
           </section>
         </div>
-        <div class="side-bar rounded-container"></div>
+        <div class="side-bar rounded-container">
+          <div class="side-bar__header">
+            <h2 class="container-title text">Итого</h2>
+            <p class="side-bar__price text">
+              2 101 063 <span class="side-bar__currency">сом</span>
+            </p>
+          </div>
+          <ul class="side-bar__list list">
+            <li class="side-bar__item">
+              <p class="side-bar__item-text text">203 товара</p>
+              <p class="side-bar__item-text text">2 302 048 сом</p>
+            </li>
+            <li class="side-bar__item">
+              <p class="side-bar__item-text text">Скидка</p>
+              <p class="side-bar__item-text text">−200 985 сом</p>
+            </li>
+            <li class="side-bar__item">
+              <p class="side-bar__item-text text">Доставка</p>
+              <p class="side-bar__item-text text">Бесплатно</p>
+            </li>
+          </ul>
+          <div class="side-bar__container">
+            <h3 class="side-bar__title text">Доставка в пункт выдачи</h3>
+            <button class="side-bar__edit-button button" type="button"></button>
+          </div>
+          <p class="side-bar__text text">
+            Бишкек, улица Ахматбека Суюмбаева, 12/1
+          </p>
+          <p class="side-bar__date text">5–8 фев</p>
+          <div class="side-bar__round-container">
+            <p class="side-bar__info text">
+              Обратная доставка товаров на склад при отказе —
+              <span class="side-bar__accent">бесплатно</span>
+            </p>
+          </div>
+          <div class="side-bar__container">
+            <h3 class="side-bar__title text">Оплата картой</h3>
+            <button class="side-bar__edit-button button" type="button"></button>
+          </div>
+          <div class="methods-pay">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="10"
+              viewBox="0 0 30 10"
+              fill="none"
+              class="methods-pay__icon"
+            >
+              <path
+                d="M16.6813 1.84371L14.8645 5.75824H14.6806V1.00024H12.0852V9.00233H14.2372C14.8212 9.00233 15.3403 8.6671 15.589 8.14805L17.4166 4.24433H17.6005V9.00233H20.1959V1.00024H18.0114C17.4491 1.00024 16.9192 1.33547 16.6813 1.84371Z"
+                fill="#319B42"
+              />
+              <path
+                d="M6.97243 2.04917L5.90182 5.75824H5.71798L4.63656 2.04917C4.45271 1.42198 3.87956 1.00024 3.2307 1.00024H0.667725V9.00233H3.26315V4.24433H3.44699L4.93935 9.00233H6.66963L8.162 4.24433H8.34584V9.00233H10.9413V1.00024H8.37829C7.72943 1.00024 7.14546 1.42198 6.97243 2.04917Z"
+                fill="#319B42"
+              />
+              <path
+                d="M21.3244 4.56733V9.00233H23.9207V6.40623H26.7116C27.9232 6.40623 28.9509 5.63822 29.3295 4.56733H21.3244Z"
+                fill="#319B42"
+              />
+              <path
+                d="M26.6358 1.00024H20.8591C21.2161 2.90405 22.882 4.24537 24.8833 4.24537H29.3727C29.4051 4.07229 29.4267 3.87758 29.4267 3.68288C29.4267 2.13604 28.1827 1.00024 26.6358 1.00024Z"
+                fill="url(#paint0_linear_17_534)"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_17_534"
+                  x1="20.8591"
+                  y1="2.6228"
+                  x2="29.4267"
+                  y2="2.6228"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#00A3E1" />
+                  <stop offset="0.3042" stop-color="#009ADD" />
+                  <stop offset="0.7987" stop-color="#0082D4" />
+                  <stop offset="1" stop-color="#0076CF" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <p class="methods-pay__text text">1234 12•• •••• 1234</p>
+          </div>
+          <div class="side-bar__round-container">
+            <label class="checkbox side-bar__checkbox">
+              <input type="checkbox" class="checkbox__input" />
+              <span
+                class="checkbox__visible-checkbox side-bar__visible-checkbox"
+              ></span>
+              <span class="checkbox__text checkbox__text_size_small"
+                >Списать оплату сразу</span
+              >
+            </label>
+            <p class="side-bar__text text">
+              Спишем оплату с карты при получении
+            </p>
+          </div>
+          <button class="submit-button side-bar__submit-button button">
+            Заказать
+          </button>
+          <p class="side-bar__oferta text">
+            Соглашаюсь с
+            <a href="#" target="_blank" class="side-bar__link link"
+              >правилами пользования торговой площадкой</a
+            >
+            и <a href="#" target="_blank" class="side-bar__link link"
+              >возврата</a
+            >
+          </p>
+        </div>
       </div>
     </main>
     <footer class="footer">

@@ -1,0 +1,16 @@
+.submit-button {
+  width: 100%;
+  max-width: 255px;
+  border-radius: 8px;
+  padding: 8px 32px 14px;
+  background-color: var(--system-magenta-color);
+  color: var(--system-white-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.submit-button:hover {
+  background-color: var(--system-pink-color);
+}

@@ -1,0 +1,19 @@
+.side-bar__oferta {
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  padding-left: 21px;
+}
+
+.side-bar__oferta::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 13px;
+  height: 24px;
+  background: url("../../../images/checked-icon.svg") center no-repeat;
+  background-position: cover;
+}

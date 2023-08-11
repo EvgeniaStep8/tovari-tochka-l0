@@ -1,0 +1,17 @@
+.side-bar__info {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.side-bar__info::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  background: url("../../../images/price-shipping.svg");
+}

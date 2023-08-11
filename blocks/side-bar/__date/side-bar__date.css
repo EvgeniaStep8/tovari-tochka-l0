@@ -1,0 +1,10 @@
+.side-bar__date {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--system-magenta-color);
+  border-bottom: 1px dashed rgba(203, 17, 171, 0.2);
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
