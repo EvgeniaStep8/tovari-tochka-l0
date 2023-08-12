@@ -4,3 +4,11 @@
   line-height: 32px;
   letter-spacing: -0.24px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .side-bar__price {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -0.2px;
+  }
+}

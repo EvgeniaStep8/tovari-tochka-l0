@@ -43,6 +43,7 @@
 @import url("./blocks/checkbox/__text/checkbox__text.css");
 @import url("./blocks/checkbox/__text/_size/_small/checkbox__text_size_small.css");
 /* products */
+@import url("./blocks/products/produts.css");
 @import url("./blocks/products/__header/products__header.css");
 @import url("./blocks/products/__visible-checkbox/products__visible-checkbox.css");
 @import url("./blocks/products/__button/products__button.css");
@@ -88,6 +89,7 @@
 @import url("./blocks/side-bar/__list/side-bar__list.css");
 @import url("./blocks/side-bar/__item/side-bar__item.css");
 @import url("./blocks/side-bar/__item-text/side-bar__item-text.css");
+@import url("./blocks/side-bar/__section/side-bar__section.css");
 @import url("./blocks/side-bar/__container/side-bar__container.css");
 @import url("./blocks/side-bar/__title/side-bar__title.css");
 @import url("./blocks/side-bar/__edit-button/side-bar__edit-button.css");

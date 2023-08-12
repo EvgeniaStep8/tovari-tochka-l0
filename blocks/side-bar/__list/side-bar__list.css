@@ -1,3 +1,9 @@
 .side-bar__list {
   margin-bottom: 24px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .side-bar__list {
+    margin-bottom: 16px;
+  }
+}

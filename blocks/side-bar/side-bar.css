@@ -2,4 +2,22 @@
   width: 303px;
   position: sticky;
   top: 22px;
+  padding: 16px 24px 24px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: var(--background-white-color);
+  box-shadow: var(--common-element-shadow);
+}
+
+@media screen and (max-width: 767.98px) {
+  .side-bar {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 0;
+    background-color: var(--background-smocky-color);
+    box-shadow: none;
+    padding: 24px 16px 40px;
+  }
 }

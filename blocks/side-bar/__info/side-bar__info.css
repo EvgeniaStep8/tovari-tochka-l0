@@ -4,6 +4,7 @@
   line-height: 16px;
   padding-left: 30px;
   position: relative;
+  max-width: 300px;
 }
 
 .side-bar__info::before {

@@ -4,3 +4,14 @@
   border-radius: 8px;
   margin-bottom: 24px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .side-bar__round-container {
+    background-color: var(--system-smoky-dark-color);
+    margin-bottom: 16px;
+  }
+
+  .side-bar__round-container:last-of-type {
+    margin-bottom: 24px;
+  }
+}

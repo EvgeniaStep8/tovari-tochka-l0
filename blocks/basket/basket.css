@@ -2,3 +2,10 @@
   margin-right: 32px;
   flex: 1 0 0;
 }
+
+@media screen and (max-width: 767.98px) {
+  .basket {
+    margin-right: 0;
+    width: 100%;
+  }
+}
