@@ -74,6 +74,17 @@
 @import url("./blocks/card/__new-price/card__new-price.css");
 @import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
+/* container-title */
+@import url("./blocks/container-title/container-title.css");
+/* pay */
+@import url("./blocks/pay/pay.css");
+@import url("./blocks/pay/__container/pay__container.css");
+@import url("./blocks/pay/__button/pay__button.css");
+@import url("./blocks/pay/__card/pay__card.css");
+@import url("./blocks/pay/__icon/pay__icon.css");
+@import url("./blocks/pay/__number/pay__number.css");
+@import url("./blocks/pay/__date/pay__date.css");
+@import url("./blocks/pay/__info/pay__info.css");
 
 /*recipient*/
 @import url("./blocks/recipient/recipient.css");

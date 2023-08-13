@@ -9,5 +9,8 @@
 @media screen and (max-width: 767.98px) {
   .rounded-container {
     padding: 16px 16px 24px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
