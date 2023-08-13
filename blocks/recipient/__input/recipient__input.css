@@ -1,0 +1,27 @@
+.recipient__input {
+  width: 100%;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-bottom: 3px;
+  border-bottom: solid 1px var(--rulers-rulers-input-color);
+  outline: none;
+  margin-bottom: 4px;
+}
+
+.recipient__input::placeholder {
+  color: var(--system-gray-color);
+}
+
+.recipient__input:focus {
+  border-color: var(--system-black-color);
+}
+
+@media screen and (max-width: 767.98px) {
+  .recipient__input::placeholder {
+    color: var(--light-system-gray-color);
+  }
+}

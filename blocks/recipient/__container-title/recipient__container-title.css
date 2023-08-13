@@ -1,0 +1,9 @@
+.recipient__container-title {
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .recipient__container-title {
+    margin-bottom: 8px;
+  }
+}

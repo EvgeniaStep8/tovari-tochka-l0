@@ -75,6 +75,17 @@
 @import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
 
+/*recipient*/
+@import url("./blocks/recipient/recipient.css");
+@import url("./blocks/recipient/__container-title/recipient__container-title.css");
+@import url("./blocks/recipient/__form/recipient__form.css");
+@import url("./blocks/recipient/__label/recipient__label.css");
+@import url("./blocks/recipient/__text/recipient__text.css");
+@import url("./blocks/recipient/__input/recipient__input.css");
+@import url("./blocks/recipient/__input/_type/_error/recipient__input_type_error.css");
+@import url("./blocks/recipient/__input-error/recipient__input-error.css");
+@import url("./blocks/recipient/__input-info/recipient__input-info.css");
+
 /* methods-pay */
 @import url("./blocks/methods-pay/methods-pay.css");
 @import url("./blocks/methods-pay/__icon/methods__icon.css");

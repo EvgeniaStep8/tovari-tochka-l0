@@ -5,3 +5,9 @@
   background-color: var(--background-white-color);
   box-shadow: var(--common-element-shadow);
 }
+
+@media screen and (max-width: 767.98px) {
+  .rounded-container {
+    padding: 16px 16px 24px;
+  }
+}

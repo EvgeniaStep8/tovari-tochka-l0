@@ -1,0 +1,8 @@
+.recipient__input_type_error {
+  color: var(--system-red-color);
+  border-color: var(--system-red-color);
+}
+
+.recipient__input_type_error:focus {
+  border-color: var(--system-red-color);
+}

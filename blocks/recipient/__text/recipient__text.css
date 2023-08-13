@@ -1,0 +1,14 @@
+.recipient__text {
+  visibility: hidden;
+  color: var(--system-gray-color);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .recipient__text {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
