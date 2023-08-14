@@ -135,6 +135,7 @@
 @import url("./blocks/side-bar/__container/side-bar__container.css");
 @import url("./blocks/side-bar/__title/side-bar__title.css");
 @import url("./blocks/side-bar/__edit-button/side-bar__edit-button.css");
+@import url("./blocks/side-bar/__methods-pay/side-bar__methods-pay.css");
 @import url("./blocks/side-bar/__date/side-bar__date.css");
 @import url("./blocks/side-bar/__round-container/side-bar__round-container.css");
 @import url("./blocks/side-bar/__checkbox/side-bar__checkbox.css");
@@ -147,3 +148,19 @@
 /* footer */
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__copyright/footer__copyright.css");
+/* popup */
+@import url("./blocks/popup/popup.css");
+@import url("./blocks/popup/_opened/popup__opened.css");
+@import url("./blocks/popup/__container/popup__container.css");
+@import url("./blocks/popup/__header/popup__header.css");
+@import url("./blocks/popup/__title/popup__title.css");
+@import url("./blocks/popup/__close-button/popup__close-button.css");
+/* radiobutton */
+@import url("./blocks/radiobutton/radiobutton.css");
+@import url("./blocks/radiobutton/__input/radiobutton__input.css");
+@import url("./blocks/radiobutton/__visible-radio/radiobutton__visible-radio.css");
+/* form */
+@import url("./blocks/form/form.css");
+@import url("./blocks/form/__subtitle/form__subtitle.css");
+@import url("./blocks/form/__text/form__text.css");
+@import url("./blocks/form/__submit-button/form__submit-button.css");

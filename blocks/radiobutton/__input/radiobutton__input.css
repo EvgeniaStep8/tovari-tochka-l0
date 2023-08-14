@@ -1,0 +1,11 @@
+.radiobutton__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.radiobutton__input:checked + span {
+  background: url("../../../images/radiobutton-checked.svg") center no-repeat;
+}

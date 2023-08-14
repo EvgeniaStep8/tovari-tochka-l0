@@ -1,3 +1,9 @@
 .card__container {
-  margin-right: 16px;
+  margin-right: 56px;
+}
+
+@media screen and (max-width: 1279.98px) {
+  .card__container {
+    margin-right: 16px;
+  }
 }

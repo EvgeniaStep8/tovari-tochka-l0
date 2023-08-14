@@ -1,8 +1,12 @@
 .counter__button {
-  padding: 2px 7px 6px 8px;
+  padding: 4px 7px 4px 8px;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.2px;
   cursor: pointer;
+}
+
+.counter__button:hover {
+  color: var(--system-pink-color);
 }

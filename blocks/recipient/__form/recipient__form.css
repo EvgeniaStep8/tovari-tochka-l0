@@ -1,5 +1,8 @@
 .recipient__form {
   display: flex;
+  margin-right: 143px;
+  max-width: 700px;
+  width: 100%;
 }
 
 @media screen and (max-width: 767.98px) {

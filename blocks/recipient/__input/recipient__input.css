@@ -9,7 +9,6 @@
   padding-bottom: 3px;
   border-bottom: solid 1px var(--rulers-rulers-input-color);
   outline: none;
-  margin-bottom: 4px;
 }
 
 .recipient__input::placeholder {

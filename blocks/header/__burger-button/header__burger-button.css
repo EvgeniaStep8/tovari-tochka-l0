@@ -9,6 +9,10 @@
   margin-right: 16px;
 }
 
+.header__burger-button:hover {
+  border-color: var(--system-white-color);
+}
+
 @media screen and (max-width: 767.98px) {
   .header__burger-button {
     border: none;
@@ -16,5 +20,9 @@
     height: 28px;
     background-image: url("../../../images/burger-button-mob.svg");
     margin-right: 20px;
+  }
+
+  .header__burger-button:hover {
+    opacity: 0.7;
   }
 }

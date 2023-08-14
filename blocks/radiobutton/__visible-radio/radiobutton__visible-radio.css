@@ -1,0 +1,8 @@
+.radiobutton__visible-radio {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url("../../../images/radiobutton.svg");
+  cursor: pointer;
+  margin-right: 8px;
+}

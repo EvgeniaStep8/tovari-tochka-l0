@@ -1,5 +1,5 @@
 .side-bar {
-  width: 303px;
+  width: 429px;
   position: sticky;
   top: 22px;
   padding: 16px 24px 24px;
@@ -7,6 +7,12 @@
   border-radius: 16px;
   background-color: var(--background-white-color);
   box-shadow: var(--common-element-shadow);
+}
+
+@media screen and (max-width: 1279.98px) {
+  .side-bar {
+    width: 303px;
+  }
 }
 
 @media screen and (max-width: 767.98px) {

@@ -1,6 +1,6 @@
 .counter {
   border-radius: 8px;
   background: var(--background-white-color);
-  padding: 8px 0 13px;
   margin-bottom: 8px;
+  padding: 3px 0 10px;
 }
