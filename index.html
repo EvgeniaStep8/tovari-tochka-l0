@@ -33,7 +33,7 @@
             class="nav-bar__icon"
           />
           <p class="nav-bar__text text">Корзина</p>
-          <p class="nav-bar__info text">3</p>
+          <p class="notify text">3</p>
         </a>
       </nav>
     </header>
@@ -156,6 +156,60 @@
                 </div>
               </li>
             </ul>
+          </section>
+          <section class="delivery rounded-container">
+            <div class="delivery__container">
+              <h2 class="container-title text">Способ доставки</h2>
+              <button class="delivery__button button">Изменить</button>
+            </div>
+            <div class="delivery__grid-container">
+              <h3 class="delivery__title text">Пункт выдачи</h3>
+              <div class="deliver__point">
+                <p class="delivery__point-name text">
+                  Бишкек, улица Ахматбека Суюмбаева, 12/1
+                </p>
+                <div class="delivery__point-info">
+                  <p class="delivery__rating text">4.99</p>
+                  <p class="delivery__working-hours text">
+                    Ежедневно с 10 до 21
+                  </p>
+                </div>
+              </div>
+              <h3 class="delivery__title text">Стоимость доставки</h3>
+              <p class="delivery__price text">Бесплатно</p>
+              <h3 class="delivery__title text">5—6 февраля</h3>
+              <ul class="delivery__products list">
+                <li class="delivery__item">
+                  <img
+                    src="./images/product1.png"
+                    alt=""
+                    class="delivery__image"
+                  />
+                </li>
+                <li class="delivery__item">
+                  <img
+                    src="./images/product1.png"
+                    alt=""
+                    class="delivery__image"
+                  />
+                  <p class="notify delivery__notify text">184</p>
+                </li>
+                <li class="delivery__item">
+                  <img
+                    src="./images/product1.png"
+                    alt=""
+                    class="delivery__image"
+                  />
+                  <p class="notify delivery__notify text">2</p>
+                </li>
+              </ul>
+            </div>
+            <div class="informer">
+              <p class="informer__text text">
+                Обратная доставка товаров на склад при отказе —&nbsp;
+                <span class="informer__accent">бесплатно</span>
+              </p>
+            </div>
           </section>
           <section class="pay rounded-container">
             <div class="pay__container">
@@ -293,10 +347,12 @@
             <p class="side-bar__date text">5–8 фев</p>
           </div>
           <div class="side-bar__round-container">
-            <p class="side-bar__info text">
-              Обратная доставка товаров на склад при отказе —
-              <span class="side-bar__accent">бесплатно</span>
-            </p>
+            <div class="informer">
+              <p class="informer__text text">
+                Обратная доставка товаров на склад при отказе —
+                <span class="informer__accent">бесплатно</span>
+              </p>
+            </div>
           </div>
           <div class="side-bar__section">
             <div class="side-bar__container">

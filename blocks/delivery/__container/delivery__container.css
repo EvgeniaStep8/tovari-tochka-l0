@@ -1,11 +1,11 @@
-.pay__container {
+.delivery__container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
 }
 
-@media screen and (max-widh: 767.98px) {
-  .pay__container {
+@media screen and (max-width: 767.98px) {
+  .delivery__container {
     margin-bottom: 8px;
   }
 }

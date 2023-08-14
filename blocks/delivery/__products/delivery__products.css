@@ -1,0 +1,10 @@
+.delivery__products {
+  display: flex;
+}
+
+@media screen and (max-width: 767.98px) {
+  .delivery__products {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+}

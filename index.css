@@ -13,6 +13,8 @@
 @import url("./blocks/list/list.css");
 /* rounded-container */
 @import url("./blocks/rounded-container/rounded-container.css");
+/* notify */
+@import url("./blocks/notify/notify.css");
 /* header */
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__container/header__container.css");
@@ -76,6 +78,26 @@
 @import url("./blocks/card/__old-price.css/card__old-price.css");
 /* container-title */
 @import url("./blocks/container-title/container-title.css");
+/*  informer */
+@import url("./blocks/informer/informer.css");
+@import url("./blocks/informer/__text/informer__text.css");
+@import url("./blocks/informer/__accent/informer__accent.css");
+/* delivery */
+@import url("./blocks/delivery/delivery.css");
+@import url("./blocks/delivery/__container/delivery__container.css");
+@import url("./blocks/delivery/__button/delivery__button.css");
+@import url("./blocks/delivery/__grid-container/delivery__grid-container.css");
+@import url("./blocks/delivery/__title/delivery__title.css");
+@import url("./blocks/delivery/__point/delivery__point.css");
+@import url("./blocks/delivery/__point-name/delivery__point-name.css");
+@import url("./blocks/delivery/__point-info/delivery__point-info.css");
+@import url("./blocks/delivery/__rating/delivery__rating.css");
+@import url("./blocks/delivery/__working-hours/delivery__working-hours.css");
+@import url("./blocks/delivery/__price/delivery__price.css");
+@import url("./blocks/delivery/__products/delivery__products.css");
+@import url("./blocks/delivery/__item/delivery__item.css");
+@import url("./blocks/delivery/__image/delivery__image.css");
+@import url("./blocks/delivery/__notify/delivery__notify.css");
 /* pay */
 @import url("./blocks/pay/pay.css");
 @import url("./blocks/pay/__container/pay__container.css");
@@ -85,7 +107,6 @@
 @import url("./blocks/pay/__number/pay__number.css");
 @import url("./blocks/pay/__date/pay__date.css");
 @import url("./blocks/pay/__info/pay__info.css");
-
 /*recipient*/
 @import url("./blocks/recipient/recipient.css");
 @import url("./blocks/recipient/__container-title/recipient__container-title.css");
@@ -96,7 +117,6 @@
 @import url("./blocks/recipient/__input/_type/_error/recipient__input_type_error.css");
 @import url("./blocks/recipient/__input-error/recipient__input-error.css");
 @import url("./blocks/recipient/__input-info/recipient__input-info.css");
-
 /* methods-pay */
 @import url("./blocks/methods-pay/methods-pay.css");
 @import url("./blocks/methods-pay/__icon/methods__icon.css");
@@ -116,8 +136,6 @@
 @import url("./blocks/side-bar/__title/side-bar__title.css");
 @import url("./blocks/side-bar/__edit-button/side-bar__edit-button.css");
 @import url("./blocks/side-bar/__date/side-bar__date.css");
-@import url("./blocks/side-bar/__info/side-bar__info.css");
-@import url("./blocks/side-bar/__accent/side-bar__accent.css");
 @import url("./blocks/side-bar/__round-container/side-bar__round-container.css");
 @import url("./blocks/side-bar/__checkbox/side-bar__checkbox.css");
 @import url("./blocks/side-bar/__visible-checkbox/side-bar__visible-checkbox.css");
