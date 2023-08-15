@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <title>Товары и точка</title>
-    <script deffer type="module" src="./index.js"></script>
   </head>
   <body class="page">
     <header class="header">
@@ -90,18 +89,18 @@
                   </div>
                 </div>
                 <div class="card__container">
-                  <div class="counter">
-                    <button class="counter__button button" type="button">
+                  <div class="counter" id="card-counter">
+                    <button
+                      class="counter__button counter__button_type_minus button"
+                      type="button"
+                    >
                       −
                     </button>
-                    <input
-                      type="number"
-                      class="counter__input"
-                      min="0"
-                      value="1"
-                      readonly
-                    />
-                    <button class="counter__button button" type="button">
+                    <input type="number" class="counter__input" />
+                    <button
+                      class="counter__button counter__button_type_plus button"
+                      type="button"
+                    >
                       +
                     </button>
                   </div>
@@ -530,5 +529,6 @@
         </form>
       </div>
     </div>
+    <script deffer type="module" src="./index.js"></script>
   </body>
 </html>
