@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <title>Товары и точка</title>
+    <script deffer type="module" src="./index.js"></script>
   </head>
   <body class="page">
     <header class="header">
@@ -160,7 +161,9 @@
           <section class="delivery rounded-container">
             <div class="delivery__container">
               <h2 class="container-title text">Способ доставки</h2>
-              <button class="delivery__button button">Изменить</button>
+              <button class="delivery__button button" id="edit-delivery">
+                Изменить
+              </button>
             </div>
             <div class="delivery__grid-container">
               <h3 class="delivery__title text">Пункт выдачи</h3>
@@ -214,7 +217,7 @@
           <section class="pay rounded-container">
             <div class="pay__container">
               <h2 class="container-title text">Способ оплаты</h2>
-              <button class="pay__button button">Изменить</button>
+              <button class="pay__button button" id="edit-pay">Изменить</button>
             </div>
             <div class="pay__card">
               <svg
@@ -438,7 +441,7 @@
     <footer class="footer">
       <p class="footer__copyright text">&#169; 2022 ООО «Товары и точка»</p>
     </footer>
-    <div class="popup popup_opened">
+    <div class="popup" id="pay-popup">
       <div class="popup__container">
         <h2 class="popup__title">Способ оплаты</h2>
         <button class="popup__close-button button" type="button"></button>
@@ -496,7 +499,7 @@
         </form>
       </div>
     </div>
-    <div class="popup">
+    <div class="popup" id="delivery-popup">
       <div class="popup__container">
         <h2 class="popup__title">Способ доставки</h2>
         <button class="popup__close-button button" type="button"></button>
