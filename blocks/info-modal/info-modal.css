@@ -1,0 +1,15 @@
+.info-modal {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 0.5s linear;
+  width: 280px;
+  padding: 11px 16px 13px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: var(--background-white-color);
+  box-shadow: var(--common-element-shadow);
+}

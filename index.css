@@ -53,6 +53,12 @@
 @import url("./blocks/counter/counter.css");
 @import url("./blocks/counter/__button/counter__button.css");
 @import url("./blocks/counter/__input/counter__input.css");
+/* info-modal*/
+@import url("./blocks/info-modal/info-modal.css");
+@import url("./blocks/info-modal/_opened/info-modal_opened.css");
+@import url("./blocks/info-modal/__title/info-modal__title.css");
+@import url("./blocks/info-modal/__text/info-modal__text.css");
+@import url("./blocks/info-modal/__text/_color/_gray/info-modal__text_color_gray.css");
 /* card */
 @import url("./blocks/card/card.css");
 @import url("./blocks/card/_not-available/card_not-available.css");
@@ -64,15 +70,18 @@
 @import url("./blocks/card/__characteristics/card__characteristics.css");
 @import url("./blocks/card/__text/card__text.css");
 @import url("./blocks/card/__providers/card__providers.css");
+@import url("./blocks/card/__stock/card__stock.css");
 @import url("./blocks/card/__provider-container/card__provider-container.css");
 @import url("./blocks/card/__provider/card__provider.css");
-@import url("./blocks/card/__info-icon/card__info-icon.css");
+@import url("./blocks/card/__informer/card__informer.css");
+@import url("./blocks/card/__informer-icon/card__informer-icon.css");
 @import url("./blocks/card/__container/card__container.css");
 @import url("./blocks/card/__remainder/card__remainder.css");
 @import url("./blocks/card/__icons/card__icons.css");
 @import url("./blocks/card/__button/card__button.css");
 @import url("./blocks/card/__icon/card__icon.css");
 @import url("./blocks/card/__price/card__price.css");
+@import url("./blocks/card/__price-container/card__price-container.css");
 @import url("./blocks/card/__new-price/card__new-price.css");
 @import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
