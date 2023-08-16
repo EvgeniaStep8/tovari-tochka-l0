@@ -7,7 +7,7 @@ export const userProducts = [
     color: "белый",
     size: "56",
     count: 1,
-    counInStock: 1000,
+    countInStock: 1000,
     stock: "Коледино WB",
     provider: {
       name: "OOO Вайлдберриз",
@@ -27,7 +27,7 @@ export const userProducts = [
     color: "прозрачный",
     size: "none",
     count: 200,
-    counInStock: 500,
+    countInStock: 500,
     stock: "Коледино WB",
     provider: {
       name: "OOO Мегапрофстиль",
@@ -35,8 +35,9 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    price: 2100047,
-    oldPrice: 2300047,
+    priceOne: 10500,
+    price: 10500,
+    oldPrice: 11500,
     checked: true,
   },
   {
@@ -47,7 +48,7 @@ export const userProducts = [
     size: "none",
     color: "none",
     count: 2,
-    counInStock: 4,
+    countInStock: 4,
     stock: "Коледино WB",
     provider: {
       name: "OOO Вайлдберриз",
@@ -55,8 +56,8 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    price: 494,
-    oldPrice: 950,
+    price: 247,
+    oldPrice: 475,
     checked: true,
   },
 ];

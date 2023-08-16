@@ -1,0 +1,4 @@
+.card__image-container {
+  display: flex;
+  align-items: center;
+}

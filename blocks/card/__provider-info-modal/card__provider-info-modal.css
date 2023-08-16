@@ -1,0 +1,5 @@
+.card__provider-info-modal {
+  top: 23px;
+  left: 0;
+  transform: translateX(-50%);
+}

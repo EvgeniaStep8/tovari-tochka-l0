@@ -7,4 +7,5 @@
   border-bottom: dashed 1px var(--rulers-rulers-input-color);
   text-align: right;
   display: inline;
+  cursor: pointer;
 }

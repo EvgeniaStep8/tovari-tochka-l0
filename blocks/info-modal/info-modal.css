@@ -1,8 +1,5 @@
 .info-modal {
   position: absolute;
-  top: 23px;
-  left: 0;
-  transform: translateX(-50%);
   visibility: hidden;
   opacity: 0;
   transition: visibility 1s, opacity 0.5s linear;

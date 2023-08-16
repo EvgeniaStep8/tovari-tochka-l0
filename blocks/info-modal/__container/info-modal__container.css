@@ -1,0 +1,9 @@
+.info-modal__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.info-modal__container:last-of-type {
+  margin-bottom: 0;
+}

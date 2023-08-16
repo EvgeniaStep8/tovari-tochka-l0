@@ -13,7 +13,8 @@ export default class Card {
       oldPrice,
       checked,
     },
-    templateSelector
+    templateSelector,
+    createCounter
   ) {
     this._name = name;
     this._link = image;
@@ -27,6 +28,15 @@ export default class Card {
     this._oldPrice = oldPrice;
     this._checked = checked;
     this._templateSelector = templateSelector;
+    this._createCounter = createCounter;
+  }
+
+  _calculateProductsPrice() {
+    return this._price * this._count;
+  }
+
+  _calculateProductsOldPrice() {
+    return this._oldPrice * this._count;
   }
 
   _handleLike() {
@@ -39,12 +49,12 @@ export default class Card {
     this._card = null;
   }
 
-  _handleInformerIconMouseOver() {
-    this._providerModal.classList.add("info-modal_opened");
+  _handleInformerIconMouseOver(modal) {
+    modal.classList.add("info-modal_opened");
   }
 
-  _handleInformerIconMouseOut() {
-    this._providerModal.classList.remove("info-modal_opened");
+  _handleInformerIconMouseOut(modal) {
+    modal.classList.remove("info-modal_opened");
   }
 
   _addEventListeners() {
@@ -56,19 +66,21 @@ export default class Card {
       .querySelector(".card__button_type_delete")
       .addEventListener("click", this._handleDelete.bind(this));
 
-    this._card
-      .querySelector(".card__informer-icon")
-      .addEventListener(
-        "mouseover",
-        this._handleInformerIconMouseOver.bind(this)
-      );
+    this._infoIcon = this._card.querySelector(".card__informer-icon");
 
-    this._card
-      .querySelector(".card__informer-icon")
-      .addEventListener(
-        "mouseout",
-        this._handleInformerIconMouseOut.bind(this)
-      );
+    this._infoIcon.addEventListener("mouseover", () => {
+      this._handleInformerIconMouseOver(this._providerModal);
+    });
+    this._infoIcon.addEventListener("mouseout", () => {
+      this._handleInformerIconMouseOut(this._providerModal);
+    });
+
+    this._oldCardPrice.addEventListener("mouseover", () => {
+      this._handleInformerIconMouseOver(this._priceModal);
+    });
+    this._oldCardPrice.addEventListener("mouseout", () => {
+      this._handleInformerIconMouseOut(this._priceModal);
+    });
   }
 
   _getTemplate() {
@@ -113,12 +125,32 @@ export default class Card {
     this._providerModal.querySelector(".info-modal__adres").textContent =
       this._provider.adres;
 
-    this._card.querySelector(".card__new-price").textContent = this._price;
-    this._card.querySelector(
-      ".card__old-price"
-    ).textContent = `${this._oldPrice} сом`;
+    this._newCardPrice = this._card.querySelector(".card__new-price");
+    this._oldCardPrice = this._card.querySelector(".card__old-price");
+    this._newCardPrice.textContent = this._calculateProductsPrice();
+    this._oldCardPrice.textContent = `${this._calculateProductsOldPrice()} сом`;
 
+    this._priceModal = this._card.querySelector(".card__price-info-modal");
+
+    this._priceModal.querySelector(
+      ".info-modal__discount-percent"
+    ).textContent = "Скидка 55%";
+    this._priceModal.querySelector(".info-modal__discount").textContent =
+      "−300 сом";
+    this._priceModal.querySelector(
+      ".info-modal__client-discount-percent"
+    ).textContent = "Скидка покупателя 10%";
+    this._priceModal.querySelector(".info-modal__client-discount").textContent =
+      "−30 сом";
+
+    this._createCounter(this, this._card, this._count, this._countInStock);
     this._addEventListeners();
     return this._card;
+  }
+
+  updatePrice(count) {
+    this._count = count;
+    this._oldCardPrice.textContent = this._calculateProductsOldPrice();
+    this._newCardPrice.textContent = this._calculateProductsPrice();
   }
 }

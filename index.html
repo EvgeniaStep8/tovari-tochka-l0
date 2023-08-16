@@ -428,13 +428,15 @@
     </div>
     <template id="card-template">
       <article class="card">
-        <label class="checkbox card__checkbox">
-          <input type="checkbox" class="checkbox__input" />
-          <span
-            class="checkbox__visible-checkbox card__visible-checkbox"
-          ></span>
-        </label>
-        <img src="" alt="" class="card__image" />
+        <div class="card__image-container">
+          <label class="checkbox card__checkbox">
+            <input type="checkbox" class="checkbox__input" />
+            <span
+              class="checkbox__visible-checkbox card__visible-checkbox"
+            ></span>
+          </label>
+          <img src="" alt="" class="card__image" />
+        </div>
         <div class="card__info">
           <p class="card__name text"></p>
           <div class="card__characteristics">
@@ -545,7 +547,23 @@
             <p class="card__new-price text"></p>
             <p class="card__currency text">&nbsp;сом</p>
           </div>
-          <p class="card__old-price text"></p>
+          <div class="card__informer">
+            <p class="card__old-price text"></p>
+            <div class="info-modal card__price-info-modal">
+              <div class="info-modal__container">
+                <p
+                  class="info-modal__text info-modal__text_color_gray info-modal__discount-percent"
+                ></p>
+                <p class="info-modal__text info-modal__discount"></p>
+              </div>
+              <div class="info-modal__container">
+                <p
+                  class="info-modal__text info-modal__text_color_gray info-modal__client-discount-percent"
+                ></p>
+                <p class="info-modal__text info-modal__client-discount"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
     </template>

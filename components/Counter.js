@@ -4,15 +4,18 @@ export default class Counter {
     plusButtonSelector,
     minusButtonSelector,
     inputSelector,
+    parent,
+    handleCounterChange,
     initialValue,
     maxCount
   ) {
-    this._counter = document.querySelector(counterSelector);
+    this._counter = parent.querySelector(counterSelector);
     this._plusButton = this._counter.querySelector(plusButtonSelector);
     this._minusButton = this._counter.querySelector(minusButtonSelector);
     this._input = this._counter.querySelector(inputSelector);
     this._initialValue = initialValue;
     this._maxCount = maxCount;
+    this._handleCounterChange = handleCounterChange;
   }
 
   _checkMinusButtonState() {
@@ -38,12 +41,10 @@ export default class Counter {
 
   _plus() {
     this._input.value = +this._input.value + 1;
-    this._renderButtonState();
   }
 
   _minus() {
     this._input.value = +this._input.value - 1;
-    this._renderButtonState();
   }
 
   renderCounter() {
@@ -52,7 +53,28 @@ export default class Counter {
   }
 
   setEventListeners() {
-    this._plusButton.addEventListener("click", this._plus.bind(this));
-    this._minusButton.addEventListener("click", this._minus.bind(this));
+    this._plusButton.addEventListener("click", () => {
+      this._plus();
+      this._renderButtonState();
+      this._handleCounterChange(this._card, +this._input.value);
+    });
+
+    this._minusButton.addEventListener("click", () => {
+      this._minus();
+      this._renderButtonState();
+      this._handleCounterChange(this._card, +this._input.value);
+    });
+
+    this._input.addEventListener("change", () => {
+      if (+this._input.value > this._maxCount || +this._input.value < 1) {
+        this._input.value = 1;
+      }
+      this._renderButtonState();
+      this._handleCounterChange(this._card, +this._input.value);
+    });
+  }
+
+  getInfoAboutCard(card) {
+    this._card = card;
   }
 }
