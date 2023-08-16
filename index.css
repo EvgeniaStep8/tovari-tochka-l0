@@ -83,6 +83,7 @@
 @import url("./blocks/card/__icons/card__icons.css");
 @import url("./blocks/card/__button/card__button.css");
 @import url("./blocks/card/__icon/card__icon.css");
+@import url("./blocks/card/__icon/_visible/card__icon_visible.css");
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__price-container/card__price-container.css");
 @import url("./blocks/card/__new-price/card__new-price.css");

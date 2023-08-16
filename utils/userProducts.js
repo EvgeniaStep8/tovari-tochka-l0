@@ -7,7 +7,7 @@ export const userProducts = [
     color: "белый",
     size: "56",
     count: 1,
-    countInStock: 1000,
+    countInStock: 3,
     stock: "Коледино WB",
     provider: {
       name: "OOO Вайлдберриз",

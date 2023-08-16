@@ -1,5 +1,6 @@
 .card__icon {
   fill: var(--system-black-color);
+  visibility: hidden;
 }
 
 .card__icon:hover {

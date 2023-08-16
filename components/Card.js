@@ -39,6 +39,15 @@ export default class Card {
     return this._oldPrice * this._count;
   }
 
+  _renderRemainder() {
+    this._remainder = this._countInStock - this._count;
+    if (this._remainder < 10 && this._remainder > 0) {
+      this._cardRemainder.textContent = `Осталось ${this._remainder} шт.`;
+    } else {
+      this._cardRemainder.textContent = "";
+    }
+  }
+
   _handleLike() {
     this._card.remove();
     this._card = null;
@@ -49,19 +58,23 @@ export default class Card {
     this._card = null;
   }
 
-  _handleInformerIconMouseOver(modal) {
-    modal.classList.add("info-modal_opened");
+  _handleCardHover() {
+    this._card
+      .querySelectorAll(".card__icon")
+      .forEach((icon) => icon.classList.toggle("card__icon_visible"));
   }
 
-  _handleInformerIconMouseOut(modal) {
-    modal.classList.remove("info-modal_opened");
+  _handleInformerHover(modal) {
+    modal.classList.toggle("info-modal_opened");
   }
 
   _addEventListeners() {
+    this._card.addEventListener("mouseover", this._handleCardHover.bind(this));
+    this._card.addEventListener("mouseout", this._handleCardHover.bind(this));
+
     this._card
       .querySelector(".card__button_type_like")
       .addEventListener("click", this._handleLike.bind(this));
-
     this._card
       .querySelector(".card__button_type_delete")
       .addEventListener("click", this._handleDelete.bind(this));
@@ -69,17 +82,17 @@ export default class Card {
     this._infoIcon = this._card.querySelector(".card__informer-icon");
 
     this._infoIcon.addEventListener("mouseover", () => {
-      this._handleInformerIconMouseOver(this._providerModal);
+      this._handleInformerHover(this._providerModal);
     });
     this._infoIcon.addEventListener("mouseout", () => {
-      this._handleInformerIconMouseOut(this._providerModal);
+      this._handleInformerHover(this._providerModal);
     });
 
     this._oldCardPrice.addEventListener("mouseover", () => {
-      this._handleInformerIconMouseOver(this._priceModal);
+      this._handleInformerHover(this._priceModal);
     });
     this._oldCardPrice.addEventListener("mouseout", () => {
-      this._handleInformerIconMouseOut(this._priceModal);
+      this._handleInformerHover(this._priceModal);
     });
   }
 
@@ -125,6 +138,9 @@ export default class Card {
     this._providerModal.querySelector(".info-modal__adres").textContent =
       this._provider.adres;
 
+    this._cardRemainder = this._card.querySelector(".card__remainder");
+    this._renderRemainder();
+
     this._newCardPrice = this._card.querySelector(".card__new-price");
     this._oldCardPrice = this._card.querySelector(".card__old-price");
     this._newCardPrice.textContent = this._calculateProductsPrice();
@@ -152,5 +168,6 @@ export default class Card {
     this._count = count;
     this._oldCardPrice.textContent = this._calculateProductsOldPrice();
     this._newCardPrice.textContent = this._calculateProductsPrice();
+    this._renderRemainder();
   }
 }
