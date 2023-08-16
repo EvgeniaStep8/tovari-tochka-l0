@@ -8,6 +8,7 @@ import { userProducts } from "./utils/userProducts.js";
 import Popup from "./components/Popup.js";
 import Counter from "./components/Counter.js";
 import Card from "./components/Card.js";
+import SideBar from "./components/SideBar.js";
 
 const createCounter = (card, cardElement, value, maxValue) => {
   const cardCounter = new Counter(
@@ -45,3 +46,7 @@ userProducts.forEach((product) => {
   const card = new Card(product, "#card-template", createCounter);
   cardList.append(card.createCard());
 });
+
+const sideBar = new SideBar(2101063, 203, 2302048);
+sideBar.render();
+sideBar.setEventListeners();

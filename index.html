@@ -214,18 +214,21 @@
         <div class="side-bar">
           <div class="side-bar__header">
             <h2 class="container-title text">Итого</h2>
-            <p class="side-bar__price text">
-              2 101 063 <span class="side-bar__currency">сом</span>
-            </p>
+            <div class="side-bar__flex-container">
+              <p class="side-bar__price text">2 101 063</p>
+              <p class="side-bar__currency text">&nbsp;сом</p>
+            </div>
           </div>
           <ul class="side-bar__list list">
             <li class="side-bar__item">
-              <p class="side-bar__item-text text">203 товара</p>
-              <p class="side-bar__item-text text">2 302 048 сом</p>
+              <p class="side-bar__item-text text" id="count">203 товара</p>
+              <p class="side-bar__item-text text" id="old-price">
+                2 302 048 сом
+              </p>
             </li>
             <li class="side-bar__item">
               <p class="side-bar__item-text text">Скидка</p>
-              <p class="side-bar__item-text text">−200 985 сом</p>
+              <p class="side-bar__item-text text" id="discount">−200 985 сом</p>
             </li>
             <li class="side-bar__item">
               <p class="side-bar__item-text text">Доставка</p>
@@ -309,7 +312,11 @@
           </div>
           <div class="side-bar__round-container">
             <label class="checkbox side-bar__checkbox">
-              <input type="checkbox" class="checkbox__input" />
+              <input
+                type="checkbox"
+                class="checkbox__input"
+                id="side-bar-checkbox"
+              />
               <span
                 class="checkbox__visible-checkbox side-bar__visible-checkbox"
               ></span>

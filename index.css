@@ -140,6 +140,7 @@
 /*side-bar*/
 @import url("./blocks/side-bar/side-bar.css");
 @import url("./blocks/side-bar/__header/side-bar__header.css");
+@import url("./blocks/side-bar/__flex-container/side-bar__flex-container.css");
 @import url("./blocks/side-bar/__price/side-bar__price.css");
 @import url("./blocks/side-bar/__currency/side-bar__curency.css");
 @import url("./blocks/side-bar/__list/side-bar__list.css");
