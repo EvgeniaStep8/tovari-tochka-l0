@@ -73,6 +73,8 @@ export default class ProductCardActive extends ProductCard {
   _createCard() {
     super._createCard();
 
+    this._card.querySelector(".checkbox__input").checked = this._checked;
+
     this._card.querySelector(".card__stock").textContent = this._stock;
     this._card.querySelector(".card__provider").textContent =
       this._provider.name;

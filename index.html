@@ -44,6 +44,7 @@
           <h1 class="basket__title text">Корзина</h1>
           <section class="products">
             <div class="products__header">
+              <p class="products__info products__info_hidden"></p>
               <label class="checkbox">
                 <input type="checkbox" class="checkbox__input" />
                 <span
@@ -53,8 +54,12 @@
               </label>
               <button class="products__button button"></button>
             </div>
-            <div id="cards"></div>
-            <div id="not-available-cards"></div>
+            <div id="cards" class="cards"></div>
+            <div class="products__header products__header_not-available">
+               <p class="products__info"></p>
+              <button class="products__button button"></button>
+            </div>
+            <div id="not-available-cards" class="cards"></div>
           </section>
           <section class="delivery rounded-container">
             <div class="delivery__container">
