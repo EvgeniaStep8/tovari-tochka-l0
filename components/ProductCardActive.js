@@ -1,4 +1,6 @@
-export default class Card {
+import ProductCard from "./ProductCard.js";
+
+export default class ProductCardActive extends ProductCard {
   constructor(
     {
       name,
@@ -16,10 +18,7 @@ export default class Card {
     templateSelector,
     createCounter
   ) {
-    this._name = name;
-    this._link = image;
-    this._color = color;
-    this._size = size;
+    super({ name, image, color, size }, templateSelector);
     this._count = count;
     this._countInStock = countInStock;
     this._stock = stock;
@@ -27,7 +26,6 @@ export default class Card {
     this._price = price;
     this._oldPrice = oldPrice;
     this._checked = checked;
-    this._templateSelector = templateSelector;
     this._createCounter = createCounter;
   }
 
@@ -48,36 +46,12 @@ export default class Card {
     }
   }
 
-  _handleLike() {
-    this._card.remove();
-    this._card = null;
-  }
-
-  _handleDelete() {
-    this._card.remove();
-    this._card = null;
-  }
-
-  _handleCardHover() {
-    this._card
-      .querySelectorAll(".card__icon")
-      .forEach((icon) => icon.classList.toggle("card__icon_visible"));
-  }
-
   _handleInformerHover(modal) {
     modal.classList.toggle("info-modal_opened");
   }
 
   _addEventListeners() {
-    this._card.addEventListener("mouseover", this._handleCardHover.bind(this));
-    this._card.addEventListener("mouseout", this._handleCardHover.bind(this));
-
-    this._card
-      .querySelector(".card__button_type_like")
-      .addEventListener("click", this._handleLike.bind(this));
-    this._card
-      .querySelector(".card__button_type_delete")
-      .addEventListener("click", this._handleDelete.bind(this));
+    super._addEventListeners();
 
     this._infoIcon = this._card.querySelector(".card__informer-icon");
 
@@ -96,32 +70,8 @@ export default class Card {
     });
   }
 
-  _getTemplate() {
-    const card = document
-      .querySelector(this._templateSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return card;
-  }
-
-  createCard() {
-    this._card = this._getTemplate();
-
-    this._checkbox = this._card.querySelector(".checkbox__input");
-    this._checkbox.checked = this._checked;
-
-    this._card.querySelector(".card__name").textContent = this._name;
-
-    this._image = this._card.querySelector(".card__image");
-    this._image.src = this._link;
-    this._image.alt = this._name;
-
-    this._card.querySelector(
-      ".card__text_type_color"
-    ).textContent = `Цвет: ${this._color}`;
-    this._card.querySelector(
-      ".card__text_type_size"
-    ).textContent = `Размер: ${this._size}`;
+  _createCard() {
+    super._createCard();
 
     this._card.querySelector(".card__stock").textContent = this._stock;
     this._card.querySelector(".card__provider").textContent =
@@ -143,8 +93,9 @@ export default class Card {
 
     this._newCardPrice = this._card.querySelector(".card__new-price");
     this._oldCardPrice = this._card.querySelector(".card__old-price");
-    this._newCardPrice.textContent = this._calculateProductsPrice();
-    this._oldCardPrice.textContent = `${this._calculateProductsOldPrice()} сом`;
+    this._newCardPrice.textContent =
+      this._calculateProductsPrice().toLocaleString();
+    this._oldCardPrice.textContent = `${this._calculateProductsOldPrice().toLocaleString()} сом`;
 
     this._priceModal = this._card.querySelector(".card__price-info-modal");
 
@@ -160,8 +111,6 @@ export default class Card {
       "−30 сом";
 
     this._createCounter(this, this._card, this._count, this._countInStock);
-    this._addEventListeners();
-    return this._card;
   }
 
   updatePrice(count) {

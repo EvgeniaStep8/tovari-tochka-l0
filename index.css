@@ -62,15 +62,17 @@
 @import url("./blocks/info-modal/__text/_color/_gray/info-modal__text_color_gray.css");
 /* card */
 @import url("./blocks/card/card.css");
-@import url("./blocks/card/_not-available/card_not-available.css");
 @import url("./blocks/card/__image-container/card__image-container.css");
 @import url("./blocks/card/__checkbox/card__checkbox.css");
 @import url("./blocks/card/__visible-checkbox/card__visible-checkbox.css");
 @import url("./blocks/card/__image/card__image.css");
+@import url("./blocks/card/__image/not-available/card__image_not-available.css");
 @import url("./blocks/card/__info/card__info.css");
 @import url("./blocks/card/__name/card__name.css");
+@import url("./blocks/card/__name/_not-available/card__name_not-available.css");
 @import url("./blocks/card/__characteristics/card__characteristics.css");
 @import url("./blocks/card/__text/card__text.css");
+@import url("./blocks/card/__text/_not-available/card__text_not-available.css");
 @import url("./blocks/card/__providers/card__providers.css");
 @import url("./blocks/card/__stock/card__stock.css");
 @import url("./blocks/card/__provider-container/card__provider-container.css");
@@ -83,6 +85,7 @@
 @import url("./blocks/card/__icons/card__icons.css");
 @import url("./blocks/card/__button/card__button.css");
 @import url("./blocks/card/__icon/card__icon.css");
+@import url("./blocks/card/__icon/_not-available/card__icon_not-available.css");
 @import url("./blocks/card/__icon/_visible/card__icon_visible.css");
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__price-container/card__price-container.css");
@@ -159,7 +162,6 @@
 @import url("./blocks/side-bar/__submit-button/side-bar__submit-button.css");
 @import url("./blocks/side-bar/__oferta/side-bar__oferta.css");
 @import url("./blocks/side-bar/__link/side-bar__link.css");
-
 /* footer */
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__copyright/footer__copyright.css");

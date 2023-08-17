@@ -7,7 +7,8 @@ import {
 import { userProducts } from "./utils/userProducts.js";
 import Popup from "./components/Popup.js";
 import Counter from "./components/Counter.js";
-import Card from "./components/Card.js";
+import ProductCard from "./components/ProductCard.js";
+import ProductCardActive from "./components/ProductCardActive.js";
 import SideBar from "./components/SideBar.js";
 
 const createCounter = (card, cardElement, value, maxValue) => {
@@ -41,10 +42,21 @@ sideBarEditPayButton.addEventListener("click", () => payPopup.open());
 editDeliveryButton.addEventListener("click", () => deliveryPopup.open());
 sideBarEditDeliveryButton.addEventListener("click", () => deliveryPopup.open());
 
-const cardList = document.querySelector(".card-list");
+const cardList = document.querySelector("#cards");
+const notAvailableCardList = document.querySelector("#not-available-cards");
+
 userProducts.forEach((product) => {
-  const card = new Card(product, "#card-template", createCounter);
-  cardList.append(card.createCard());
+  if (product.countInStock == 0) {
+    const card = new ProductCard(product, "#card-not-available-template");
+    notAvailableCardList.append(card.getCard());
+  } else {
+    const card = new ProductCardActive(
+      product,
+      "#card-template",
+      createCounter
+    );
+    cardList.append(card.getCard());
+  }
 });
 
 const sideBar = new SideBar(2101063, 203, 2302048);

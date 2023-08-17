@@ -1,0 +1,3 @@
+.card__icon_not-available:hover {
+  fill: var(--system-magenta-color);
+}
