@@ -7,6 +7,7 @@ export default class ProductCardActive extends ProductCard {
       image,
       color,
       size,
+      _id,
       count,
       countInStock,
       stock,
@@ -16,9 +17,10 @@ export default class ProductCardActive extends ProductCard {
       checked,
     },
     templateSelector,
-    createCounter
+    createCounter,
+    handleCheckboxChange
   ) {
-    super({ name, image, color, size }, templateSelector);
+    super({ name, image, color, size, _id }, templateSelector);
     this._count = count;
     this._countInStock = countInStock;
     this._stock = stock;
@@ -27,6 +29,7 @@ export default class ProductCardActive extends ProductCard {
     this._oldPrice = oldPrice;
     this._checked = checked;
     this._createCounter = createCounter;
+    this._handleCheckboxChange = handleCheckboxChange;
   }
 
   _calculateProductsPrice() {
@@ -50,8 +53,18 @@ export default class ProductCardActive extends ProductCard {
     modal.classList.toggle("info-modal_opened");
   }
 
+  _handleCheckboxClick() {
+    this._checked = !this._checked;
+    this._handleCheckboxChange(this, this._checked);
+  }
+
   _addEventListeners() {
     super._addEventListeners();
+
+    this._checkbox.addEventListener(
+      "click",
+      this._handleCheckboxClick.bind(this)
+    );
 
     this._infoIcon = this._card.querySelector(".card__informer-icon");
 
@@ -73,7 +86,8 @@ export default class ProductCardActive extends ProductCard {
   _createCard() {
     super._createCard();
 
-    this._card.querySelector(".checkbox__input").checked = this._checked;
+    this._checkbox = this._card.querySelector(".checkbox__input");
+    this._checkbox.checked = this._checked;
 
     this._card.querySelector(".card__stock").textContent = this._stock;
     this._card.querySelector(".card__provider").textContent =

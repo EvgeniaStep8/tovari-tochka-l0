@@ -1,6 +1,6 @@
 export const userProducts = [
   {
-    id: 1,
+    _id: 1,
     name: "Футболка UZcotton мужская",
     image:
       "https://basket-03.wb.ru/vol393/part39348/39348523/images/big/1.webp",
@@ -20,7 +20,7 @@ export const userProducts = [
     checked: true,
   },
   {
-    id: 2,
+    _id: 2,
     name: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
     image:
       "https://basket-05.wb.ru/vol817/part81780/81780296/images/big/1.webp",
@@ -41,7 +41,7 @@ export const userProducts = [
     checked: true,
   },
   {
-    id: 3,
+    _id: 3,
     name: `Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell`,
     image:
       "https://basket-04.wb.ru/vol704/part70405/70405690/images/big/1.webp",
@@ -61,7 +61,7 @@ export const userProducts = [
     checked: true,
   },
   {
-    id: 4,
+    _id: 4,
     name: "Футболка UZcotton мужская",
     image:
       "https://basket-03.wb.ru/vol393/part39348/39348523/images/big/1.webp",
@@ -81,7 +81,7 @@ export const userProducts = [
     checked: true,
   },
   {
-    id: 5,
+    _id: 5,
     name: "Силиконовый чехол картхолдер (отверстия) для карт, прозрачный кейс бампер на Apple iPhone XR, MobiSafe",
     image:
       "https://basket-05.wb.ru/vol817/part81780/81780296/images/big/1.webp",
@@ -102,7 +102,7 @@ export const userProducts = [
     checked: true,
   },
   {
-    id: 3,
+    _id: 3,
     name: `Карандаши цветные Faber-Castell "Замок", набор 24 цвета, заточенные, шестигранные, Faber-Castell`,
     image:
       "https://basket-04.wb.ru/vol704/part70405/70405690/images/big/1.webp",

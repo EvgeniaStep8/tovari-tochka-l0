@@ -9,7 +9,8 @@ export default class ProdutsHeaderActive extends ProductsHeader {
     count,
     sum,
     isAllProductsChecked,
-    checkboxSelector
+    checkboxSelector,
+    handleCheckboxAllChange
   ) {
     super(
       productsHeaderSelector,
@@ -18,10 +19,11 @@ export default class ProdutsHeaderActive extends ProductsHeader {
       infoSelector,
       count
     );
-    this._sum = sum * count;
+    this._sum = sum;
     this._checkbox = this._header.querySelector(checkboxSelector);
     this._checkboxInput = this._checkbox.querySelector(".checkbox__input");
     this._isChecked = isAllProductsChecked;
+    this._handleCheckboxAllChange = handleCheckboxAllChange;
   }
 
   _toggleCheckboxVisible() {
@@ -32,20 +34,32 @@ export default class ProdutsHeaderActive extends ProductsHeader {
     this._info.classList.toggle("products__info_hidden");
   }
 
-  updateSum(sum) {
-    this._sum = sum;
+  _handleCheckboxAllClick() {
+    this._isChecked = !this._isChecked;
+    this._handleCheckboxAllChange(this._isChecked);
+  }
+
+  update(count, price) {
+    this._count = count;
+    this._sum = price;
   }
 
   updateCheckbox(isChecked) {
-    this._isChecked = isChecked();
+    this._isChecked = isChecked;
   }
 
   setEventListeners() {
     super.setEventListeners();
+
     this._button.addEventListener("click", () => {
       this._toggleCheckboxVisible();
       this._togleInfoVisible();
     });
+
+    this._checkboxInput.addEventListener(
+      "click",
+      this._handleCheckboxAllClick.bind(this)
+    );
   }
 
   render() {

@@ -1,7 +1,7 @@
 export default class SideBar {
-  constructor(sumPrice, sumCount, sumOldPrice) {
-    this._sumPrice = sumPrice * sumCount;
-    this._sumOldPrice = sumOldPrice * sumCount;
+  constructor(sumCount, sumPrice, sumOldPrice) {
+    this._sumPrice = sumPrice;
+    this._sumOldPrice = sumOldPrice;
     this._sumCount = sumCount;
 
     this._price = document.querySelector(".side-bar__price");
@@ -22,6 +22,12 @@ export default class SideBar {
 
   setEventListeners() {
     this._checkbox.addEventListener("change", this._renderButton.bind(this));
+  }
+
+  update(count, price, oldPrice) {
+    this._sumCount = count;
+    this._sumPrice = price;
+    this._sumOldPrice = oldPrice;
   }
 
   render() {

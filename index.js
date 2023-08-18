@@ -40,16 +40,85 @@ const createCounter = (card, cardElement, value, maxValue) => {
   cardCounter.getInfoAboutCard(card);
 };
 
-const handleCounterChange = (card, count) => {
-  card.updatePrice(count);
+const updateBill = () => {
+  const count = sumUpCountCheckedProducts(products);
+  const price = sumUpPriceCheckedProducts(products);
+  const oldPrice = sumUpOldPriceCheckedProducts(products);
+  return { count, price, oldPrice };
 };
 
-const sumUp = (field) => {
-  return products.reduce((prev, cur) => prev + cur[field], 0);
+const handleCounterChange = (card, newCount) => {
+  card.updatePrice(newCount);
+  products.filter((product) => product._id === card.getId())[0].count =
+    newCount;
+  const { count, price, oldPrice } = updateBill();
+
+  productsHeaderActive.update(count, price);
+  productsHeaderActive.render();
+
+  sideBar.update(count, price, oldPrice);
+  sideBar.render();
+};
+
+const handleCheckboxChange = (card, isChecked) => {
+  products.filter((product) => product._id === card.getId())[0].checked =
+    isChecked;
+  const { count, price, oldPrice } = updateBill();
+
+  productsHeaderActive.update(count, price);
+  productsHeaderActive.updateCheckbox(
+    products.every((product) => product.checked)
+  );
+  productsHeaderActive.render();
+
+  sideBar.update(count, price, oldPrice);
+  sideBar.render();
+};
+
+const handleCheckboxAllChange = (isChecked) => {
+  document
+    .querySelector(".cards")
+    .querySelectorAll(".checkbox__input")
+    .forEach((input) => (input.checked = isChecked));
+
+  products.forEach((product) => (product.checked = isChecked));
+  const { count, price, oldPrice } = updateBill();
+
+  productsHeaderActive.update(count, price);
+  productsHeaderActive.render();
+
+  sideBar.update(count, price, oldPrice);
+  sideBar.render();
+};
+
+const sumUpCountCheckedProducts = (cards) => {
+  return cards.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count : prev + 0),
+    0
+  );
+};
+
+const sumUpPriceCheckedProducts = (cards) => {
+  return cards.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count * cur.price : prev + 0),
+    0
+  );
+};
+
+const sumUpOldPriceCheckedProducts = (cards) => {
+  return cards.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count * cur.oldPrice : prev + 0),
+    0
+  );
 };
 
 const renderCard = (item) => {
-  const card = new ProductCardActive(item, "#card-template", createCounter);
+  const card = new ProductCardActive(
+    item,
+    "#card-template",
+    createCounter,
+    handleCheckboxChange
+  );
   cardContainer.addCard(card.getCard());
 };
 
@@ -77,10 +146,11 @@ const productsHeaderActive = new ProductsHeaderActive(
   ".products__button",
   "#cards",
   ".products__info",
-  sumUp("count"),
-  sumUp("price"),
+  sumUpCountCheckedProducts(products),
+  sumUpPriceCheckedProducts(products),
   true,
-  ".checkbox"
+  ".checkbox",
+  handleCheckboxAllChange
 );
 
 cardContainer.renderCards();
@@ -92,7 +162,11 @@ productsHeaderNotAvailable.setEventListeners();
 productsHeaderActive.render();
 productsHeaderActive.setEventListeners();
 
-const sideBar = new SideBar(sumUp("price"), sumUp("count"), sumUp("oldPrice"));
+const sideBar = new SideBar(
+  sumUpCountCheckedProducts(products),
+  sumUpPriceCheckedProducts(products),
+  sumUpOldPriceCheckedProducts(products)
+);
 sideBar.render();
 sideBar.setEventListeners();
 

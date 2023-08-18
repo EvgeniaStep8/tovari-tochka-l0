@@ -1,9 +1,10 @@
 export default class ProductCard {
-  constructor({ name, image, color, size }, templateSelector) {
+  constructor({ name, image, color, size, _id }, templateSelector) {
     this._name = name;
     this._link = image;
     this._color = color;
     this._size = size;
+    this._id = _id;
     this._template = document.querySelector(templateSelector);
   }
 
@@ -21,6 +22,10 @@ export default class ProductCard {
     this._card
       .querySelectorAll(".card__icon")
       .forEach((icon) => icon.classList.toggle("card__icon_visible"));
+  }
+
+  getId() {
+    return this._id;
   }
 
   _addEventListeners() {
