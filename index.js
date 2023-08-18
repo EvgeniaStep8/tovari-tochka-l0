@@ -13,6 +13,16 @@ import Counter from "./components/Counter.js";
 import ProductCard from "./components/ProductCard.js";
 import ProductCardActive from "./components/ProductCardActive.js";
 import SideBar from "./components/SideBar.js";
+import Form from "./components/Form.js";
+
+const products = [];
+const notAvailableProducts = [];
+
+userProducts.forEach((product) => {
+  product.countInStock > 0
+    ? products.push(product)
+    : notAvailableProducts.push(product);
+});
 
 const createCounter = (card, cardElement, value, maxValue) => {
   const cardCounter = new Counter(
@@ -34,14 +44,9 @@ const handleCounterChange = (card, count) => {
   card.updatePrice(count);
 };
 
-const cards = [];
-const notAvailableCards = [];
-
-userProducts.forEach((product) => {
-  product.countInStock > 0
-    ? cards.push(product)
-    : notAvailableCards.push(product);
-});
+const sumUp = (field) => {
+  return products.reduce((prev, cur) => prev + cur[field], 0);
+};
 
 const renderCard = (item) => {
   const card = new ProductCardActive(item, "#card-template", createCounter);
@@ -53,10 +58,10 @@ const renderNotAvailableCard = (item) => {
   cardNotAvailableContainer.addCard(card.getCard());
 };
 
-const cardContainer = new CardContainer("#cards", cards, renderCard);
+const cardContainer = new CardContainer("#cards", products, renderCard);
 const cardNotAvailableContainer = new CardContainer(
   "#not-available-cards",
-  notAvailableCards,
+  notAvailableProducts,
   renderNotAvailableCard
 );
 
@@ -65,15 +70,15 @@ const productsHeaderNotAvailable = new ProductsHeaderNotAvailable(
   ".products__button",
   "#not-available-cards",
   ".products__info",
-  notAvailableCards.length
+  notAvailableProducts.length
 );
 const productsHeaderActive = new ProductsHeaderActive(
   ".products__header",
   ".products__button",
   "#cards",
   ".products__info",
-  200,
-  12000000,
+  sumUp("count"),
+  sumUp("price"),
   true,
   ".checkbox"
 );
@@ -87,12 +92,16 @@ productsHeaderNotAvailable.setEventListeners();
 productsHeaderActive.render();
 productsHeaderActive.setEventListeners();
 
-const sideBar = new SideBar(2101063, 203, 2302048);
+const sideBar = new SideBar(sumUp("price"), sumUp("count"), sumUp("oldPrice"));
 sideBar.render();
 sideBar.setEventListeners();
 
 const payPopup = new Popup("#pay-popup", ".popup__close-button");
 const deliveryPopup = new Popup("#delivery-popup", ".popup__close-button");
+
+const form = new Form(".recipient__input", "");
+
+form.setEventListeners();
 
 payPopup.setEventListeners();
 deliveryPopup.setEventListeners();

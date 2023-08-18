@@ -1,7 +1,7 @@
 export default class SideBar {
   constructor(sumPrice, sumCount, sumOldPrice) {
-    this._sumPrice = sumPrice;
-    this._sumOldPrice = sumOldPrice;
+    this._sumPrice = sumPrice * sumCount;
+    this._sumOldPrice = sumOldPrice * sumCount;
     this._sumCount = sumCount;
 
     this._price = document.querySelector(".side-bar__price");
@@ -14,7 +14,7 @@ export default class SideBar {
 
   _renderButton() {
     if (this._checkbox.checked) {
-      this._button.textContent = `Оплатить ${this._sumPrice} сом`;
+      this._button.textContent = `Оплатить ${this._sumPrice.toLocaleString()} сом`;
     } else {
       this._button.textContent = "Заказать";
     }

@@ -18,7 +18,7 @@ export default class ProdutsHeaderActive extends ProductsHeader {
       infoSelector,
       count
     );
-    this._sum = sum;
+    this._sum = sum * count;
     this._checkbox = this._header.querySelector(checkboxSelector);
     this._checkboxInput = this._checkbox.querySelector(".checkbox__input");
     this._isChecked = isAllProductsChecked;

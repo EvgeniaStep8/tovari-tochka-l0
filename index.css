@@ -137,6 +137,7 @@
 @import url("./blocks/recipient/__form/recipient__form.css");
 @import url("./blocks/recipient/__label/recipient__label.css");
 @import url("./blocks/recipient/__text/recipient__text.css");
+@import url("./blocks/recipient/__text/_visible/recipient__text_visible.css");
 @import url("./blocks/recipient/__input/recipient__input.css");
 @import url("./blocks/recipient/__input/_type/_error/recipient__input_type_error.css");
 @import url("./blocks/recipient/__input-error/recipient__input-error.css");
