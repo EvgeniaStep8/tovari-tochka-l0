@@ -1,7 +1,6 @@
 export default class Form {
   constructor(inputSelector) {
     this._inputs = document.querySelectorAll(inputSelector);
-    //this._submit = document.querySelector(submitButtonSelector);
   }
 
   _togglePlaceholderToLabel(evt) {

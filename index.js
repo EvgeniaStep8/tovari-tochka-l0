@@ -14,6 +14,7 @@ import ProductCard from "./components/ProductCard.js";
 import ProductCardActive from "./components/ProductCardActive.js";
 import SideBar from "./components/SideBar.js";
 import Form from "./components/Form.js";
+import FormValidator from "./components/FormValidator.js";
 
 const products = [];
 const notAvailableProducts = [];
@@ -76,15 +77,11 @@ const handleCheckboxChange = (card, isChecked) => {
 };
 
 const handleCheckboxAllChange = (isChecked) => {
-  document
-    .querySelector(".cards")
-    .querySelectorAll(".checkbox__input")
-    .forEach((input) => (input.checked = isChecked));
-
   products.forEach((product) => (product.checked = isChecked));
   const { count, price, oldPrice } = updateBill();
 
   productsHeaderActive.update(count, price);
+  productsHeaderActive.updateCheckbox(isChecked);
   productsHeaderActive.render();
 
   sideBar.update(count, price, oldPrice);
@@ -117,7 +114,8 @@ const renderCard = (item) => {
     item,
     "#card-template",
     createCounter,
-    handleCheckboxChange
+    handleCheckboxChange,
+    handleCheckboxAllChange
   );
   cardContainer.addCard(card.getCard());
 };
@@ -149,9 +147,47 @@ const productsHeaderActive = new ProductsHeaderActive(
   sumUpCountCheckedProducts(products),
   sumUpPriceCheckedProducts(products),
   true,
-  ".checkbox",
-  handleCheckboxAllChange
+  ".checkbox"
 );
+
+const nameInputValidator = new FormValidator(
+  "#name",
+  "#name-error",
+  ".side-bar__submit-button"
+);
+
+const lastNameInputValidator = new FormValidator(
+  "#lastname",
+  "#lastname-error",
+  ".side-bar__submit-button"
+);
+
+const emailInputValidator = new FormValidator(
+  "#email",
+  "#email-error",
+  ".side-bar__submit-button"
+);
+
+const telInputValidator = new FormValidator(
+  "#tel",
+  "#tel-error",
+  ".side-bar__submit-button"
+);
+
+const innInputValidator = new FormValidator(
+  "#inn",
+  "#inn-error",
+  ".side-bar__submit-button"
+);
+
+nameInputValidator.validateRequired("Укажите имя");
+lastNameInputValidator.validateRequired("Введите фамилию");
+emailInputValidator.validateRequired("Укажите электронную почту");
+emailInputValidator.validateInputByType("Проверьте адрес электронной почты");
+telInputValidator.validateRequired("Укажите номер телефона");
+telInputValidator.validateInputByType("Формат: +9 999 999 99 99");
+innInputValidator.validateRequired("Укажите ИНН");
+innInputValidator.validateInn("Проверьте ИНН");
 
 cardContainer.renderCards();
 cardNotAvailableContainer.renderCards();

@@ -46,7 +46,7 @@
             <div class="products__header">
               <p class="products__info products__info_hidden"></p>
               <label class="checkbox">
-                <input type="checkbox" class="checkbox__input" />
+                <input type="checkbox" class="checkbox__input" id="checkbox-all" />
                 <span
                   class="checkbox__visible-checkbox products__visible-checkbox"
                 ></span>
@@ -175,8 +175,8 @@
             <form class="recipient__form">
               <label class="recipient__label">
                 <span class="recipient__text">Имя</span>
-                <input type="text" class="recipient__input" placeholder="Имя" />
-                <span class="recipient__input-error"></span>
+                <input type="text" class="recipient__input" id="name" placeholder="Имя" />
+                <span class="recipient__input-error" id="name-error"></span>
               </label>
               <label class="recipient__label">
                 <span class="recipient__text">Фамилия</span>
@@ -184,8 +184,9 @@
                   type="text"
                   class="recipient__input"
                   placeholder="Фамилия"
+                  id="lastname"
                 />
-                <span class="recipient__input-error"></span>
+                <span class="recipient__input-error" id="lastname-error"></span>
               </label>
             </form>
             <form class="recipient__form">
@@ -195,8 +196,9 @@
                   type="email"
                   class="recipient__input"
                   placeholder="Почта"
+                  id="email"
                 />
-                <span class="recipient__input-error"></span>
+                <span class="recipient__input-error" id="email-error"></span>
               </label>
               <label class="recipient__label">
                 <span class="recipient__text">Телефон</span>
@@ -204,16 +206,17 @@
                   type="tel"
                   class="recipient__input"
                   placeholder="Телефон"
+                  id="tel"
                 />
-                <span class="recipient__input-error"></span>
+                <span class="recipient__input-error" id="tel-error"></span>
               </label>
               <label class="recipient__label">
                 <span class="recipient__text">ИНН</span>
-                <input type="text" class="recipient__input" placeholder="ИНН" />
+                <input type="text" class="recipient__input" placeholder="ИНН" id="inn" />
                 <span class="recipient__input-info"
                   >Для таможенного оформления</span
                 >
-                <span class="recipient__input-error"></span>
+                <span class="recipient__input-error" id="inn-error"></span>
               </label>
             </form>
           </section>

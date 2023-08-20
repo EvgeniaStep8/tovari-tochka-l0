@@ -18,7 +18,8 @@ export default class ProductCardActive extends ProductCard {
     },
     templateSelector,
     createCounter,
-    handleCheckboxChange
+    handleCheckboxChange,
+    handleCheckboxAllChange
   ) {
     super({ name, image, color, size, _id }, templateSelector);
     this._count = count;
@@ -30,6 +31,7 @@ export default class ProductCardActive extends ProductCard {
     this._checked = checked;
     this._createCounter = createCounter;
     this._handleCheckboxChange = handleCheckboxChange;
+    this._handleCheckboxAllChange = handleCheckboxAllChange;
   }
 
   _calculateProductsPrice() {
@@ -53,13 +55,25 @@ export default class ProductCardActive extends ProductCard {
     modal.classList.toggle("info-modal_opened");
   }
 
-  _handleCheckboxClick() {
-    this._checked = !this._checked;
+  _handleCheckboxClick(evt) {
+    this._checked = this._checkbox.checked;
     this._handleCheckboxChange(this, this._checked);
+  }
+
+  _handleCheckboxAllClick() {
+    this._checked = this._checkboxAll.checked;
+    this._checkbox.checked = this._checked;
+    this._handleCheckboxAllChange(this._checked);
   }
 
   _addEventListeners() {
     super._addEventListeners();
+
+    this._checkboxAll = document.querySelector("#checkbox-all");
+    this._checkboxAll.addEventListener(
+      "click",
+      this._handleCheckboxAllClick.bind(this)
+    );
 
     this._checkbox.addEventListener(
       "click",
