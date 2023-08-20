@@ -8,6 +8,7 @@ import { userProducts } from "./utils/userProducts.js";
 import CardContainer from "./components/CardContainer.js";
 import ProductsHeaderActive from "./components/ProductsHeaderActive.js";
 import ProductsHeaderNotAvailable from "./components/ProductsHeaderNotAvailable.js";
+import Notify from "./components/Notify.js";
 import Popup from "./components/Popup.js";
 import Counter from "./components/Counter.js";
 import ProductCard from "./components/ProductCard.js";
@@ -81,6 +82,8 @@ const handleCardDelite = (id) => {
 
   sideBar.update(count, price, oldPrice);
   sideBar.render();
+
+  productsHeaderNotify.updateNotify(products.length);
 };
 
 const handleNotAvailableCardDelite = (id) => {
@@ -189,6 +192,11 @@ productsHeaderNotAvailable.setEventListeners();
 
 productsHeaderActive.render();
 productsHeaderActive.setEventListeners();
+
+// Создаём информатор о количестве товаров в корзине
+const productsHeaderNotify = new Notify("#header-notify", products.length);
+
+productsHeaderNotify.render();
 
 // Создаём экземпляры классов для активных и неактивных продуктов, отрисовываем их с карточками товаров
 const cardContainer = new CardContainer("#cards", products, renderCard);
