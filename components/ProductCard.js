@@ -1,21 +1,28 @@
 export default class ProductCard {
-  constructor({ name, image, color, size, _id }, templateSelector) {
+  constructor(
+    { name, image, color, size, _id },
+    templateSelector,
+    handleCardDelite
+  ) {
     this._name = name;
     this._link = image;
     this._color = color;
     this._size = size;
     this._id = _id;
     this._template = document.querySelector(templateSelector);
+    this._handleCardDelite = handleCardDelite;
   }
 
   _handleLike() {
     this._card.remove();
     this._card = null;
+    this._handleCardDelite(this._id);
   }
 
   _handleDelete() {
     this._card.remove();
     this._card = null;
+    this._handleCardDelite(this._id);
   }
 
   _handleCardHover() {

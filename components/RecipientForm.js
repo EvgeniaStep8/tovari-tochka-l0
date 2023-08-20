@@ -1,4 +1,4 @@
-export default class Form {
+export default class RecipientForm {
   constructor(inputSelector) {
     this._inputs = document.querySelectorAll(inputSelector);
   }

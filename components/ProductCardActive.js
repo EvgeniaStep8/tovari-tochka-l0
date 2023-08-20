@@ -17,11 +17,16 @@ export default class ProductCardActive extends ProductCard {
       checked,
     },
     templateSelector,
+    handleCardDelite,
     createCounter,
     handleCheckboxChange,
     handleCheckboxAllChange
   ) {
-    super({ name, image, color, size, _id }, templateSelector);
+    super(
+      { name, image, color, size, _id },
+      templateSelector,
+      handleCardDelite
+    );
     this._count = count;
     this._countInStock = countInStock;
     this._stock = stock;

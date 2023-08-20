@@ -13,18 +13,36 @@ import Counter from "./components/Counter.js";
 import ProductCard from "./components/ProductCard.js";
 import ProductCardActive from "./components/ProductCardActive.js";
 import SideBar from "./components/SideBar.js";
-import Form from "./components/Form.js";
-import FormValidator from "./components/FormValidator.js";
+import RecipientForm from "./components/RecipientForm.js";
+import InputValidator from "./components/InputValidator.js";
 
+// Пустые массивы для товаров в наличии и неактивных товаров
 const products = [];
 const notAvailableProducts = [];
 
-userProducts.forEach((product) => {
-  product.countInStock > 0
-    ? products.push(product)
-    : notAvailableProducts.push(product);
-});
+// Функции суммирования, которые принимают на вход массив товаров и суммируют их количество, старую и новую цену
+const sumUpCountCheckedProducts = (products) => {
+  return products.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count : prev + 0),
+    0
+  );
+};
 
+const sumUpPriceCheckedProducts = (products) => {
+  return products.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count * cur.price : prev + 0),
+    0
+  );
+};
+
+const sumUpOldPriceCheckedProducts = (products) => {
+  return products.reduce(
+    (prev, cur) => (cur.checked ? prev + cur.count * cur.oldPrice : prev + 0),
+    0
+  );
+};
+
+// Функция создания счётчика для карточки товара
 const createCounter = (card, cardElement, value, maxValue) => {
   const cardCounter = new Counter(
     "#card-counter",
@@ -41,6 +59,7 @@ const createCounter = (card, cardElement, value, maxValue) => {
   cardCounter.getInfoAboutCard(card);
 };
 
+// Функция обновления расчёта количетсва, новой и старой цены товаров
 const updateBill = () => {
   const count = sumUpCountCheckedProducts(products);
   const price = sumUpPriceCheckedProducts(products);
@@ -48,6 +67,33 @@ const updateBill = () => {
   return { count, price, oldPrice };
 };
 
+// Обработчики удаления карточки товара для активной и неактивной карточки, которые срабавыют при удалении товара или добавлении в избранное
+const handleCardDelite = (id) => {
+  // Находим индекс карточки с переданным id и удаляем товар с таким же id из массива
+  const index = products.find((product) => product._id === id);
+  products.splice(index, 1);
+
+  // Пересчитываем цену и обновляем данные на странице
+  const { count, price, oldPrice } = updateBill();
+
+  productsHeaderActive.update(count, price);
+  productsHeaderActive.render();
+
+  sideBar.update(count, price, oldPrice);
+  sideBar.render();
+};
+
+const handleNotAvailableCardDelite = (id) => {
+  // Находим индекс карточки с переданным id и удаляем товар с таким же id из массива
+  const index = notAvailableProducts.find((product) => product._id === id);
+  notAvailableProducts.splice(index, 1);
+
+  // Обновляем данные о кличестве отсутствующих товаров
+  productsHeaderNotAvailable.updateCount(notAvailableProducts.length);
+  productsHeaderNotAvailable.render();
+};
+
+// Обработчик изменения количества товаров
 const handleCounterChange = (card, newCount) => {
   card.updatePrice(newCount);
   products.filter((product) => product._id === card.getId())[0].count =
@@ -61,6 +107,7 @@ const handleCounterChange = (card, newCount) => {
   sideBar.render();
 };
 
+// Обработчик измения чекбокса выбора товара
 const handleCheckboxChange = (card, isChecked) => {
   products.filter((product) => product._id === card.getId())[0].checked =
     isChecked;
@@ -76,6 +123,7 @@ const handleCheckboxChange = (card, isChecked) => {
   sideBar.render();
 };
 
+// Обработчик изменения чекбокса выбрать всё
 const handleCheckboxAllChange = (isChecked) => {
   products.forEach((product) => (product.checked = isChecked));
   const { count, price, oldPrice } = updateBill();
@@ -88,31 +136,12 @@ const handleCheckboxAllChange = (isChecked) => {
   sideBar.render();
 };
 
-const sumUpCountCheckedProducts = (cards) => {
-  return cards.reduce(
-    (prev, cur) => (cur.checked ? prev + cur.count : prev + 0),
-    0
-  );
-};
-
-const sumUpPriceCheckedProducts = (cards) => {
-  return cards.reduce(
-    (prev, cur) => (cur.checked ? prev + cur.count * cur.price : prev + 0),
-    0
-  );
-};
-
-const sumUpOldPriceCheckedProducts = (cards) => {
-  return cards.reduce(
-    (prev, cur) => (cur.checked ? prev + cur.count * cur.oldPrice : prev + 0),
-    0
-  );
-};
-
+// Функция отрисровки активных и неактивных карточек
 const renderCard = (item) => {
   const card = new ProductCardActive(
     item,
     "#card-template",
+    handleCardDelite,
     createCounter,
     handleCheckboxChange,
     handleCheckboxAllChange
@@ -121,17 +150,22 @@ const renderCard = (item) => {
 };
 
 const renderNotAvailableCard = (item) => {
-  const card = new ProductCard(item, "#card-not-available-template");
+  const card = new ProductCard(
+    item,
+    "#card-not-available-template",
+    handleNotAvailableCardDelite
+  );
   cardNotAvailableContainer.addCard(card.getCard());
 };
 
-const cardContainer = new CardContainer("#cards", products, renderCard);
-const cardNotAvailableContainer = new CardContainer(
-  "#not-available-cards",
-  notAvailableProducts,
-  renderNotAvailableCard
-);
+// Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
+userProducts.forEach((product) => {
+  product.countInStock > 0
+    ? products.push(product)
+    : notAvailableProducts.push(product);
+});
 
+// Создаём экземпляры классов шапки для активных и неактивных продуктов, отрисовываем их и навешиваем слушатели событий
 const productsHeaderNotAvailable = new ProductsHeaderNotAvailable(
   ".products__header_not-available",
   ".products__button",
@@ -150,31 +184,61 @@ const productsHeaderActive = new ProductsHeaderActive(
   ".checkbox"
 );
 
-const nameInputValidator = new FormValidator(
+productsHeaderNotAvailable.render();
+productsHeaderNotAvailable.setEventListeners();
+
+productsHeaderActive.render();
+productsHeaderActive.setEventListeners();
+
+// Создаём экземпляры классов для активных и неактивных продуктов, отрисовываем их с карточками товаров
+const cardContainer = new CardContainer("#cards", products, renderCard);
+const cardNotAvailableContainer = new CardContainer(
+  "#not-available-cards",
+  notAvailableProducts,
+  renderNotAvailableCard
+);
+
+cardContainer.renderCards();
+cardNotAvailableContainer.renderCards();
+
+// Создаём экземпляр класса sideBar, отрисовываем его и навешиваем слушатели событий
+const sideBar = new SideBar(
+  sumUpCountCheckedProducts(products),
+  sumUpPriceCheckedProducts(products),
+  sumUpOldPriceCheckedProducts(products)
+);
+sideBar.render();
+sideBar.setEventListeners();
+
+const recipientForm = new RecipientForm(".recipient__input", "");
+recipientForm.setEventListeners();
+
+// Создаём экземпляры классов для валидатора инпутов, проверяем инпуты по условиям указанным в тз
+const nameInputValidator = new InputValidator(
   "#name",
   "#name-error",
   ".side-bar__submit-button"
 );
 
-const lastNameInputValidator = new FormValidator(
+const lastNameInputValidator = new InputValidator(
   "#lastname",
   "#lastname-error",
   ".side-bar__submit-button"
 );
 
-const emailInputValidator = new FormValidator(
+const emailInputValidator = new InputValidator(
   "#email",
   "#email-error",
   ".side-bar__submit-button"
 );
 
-const telInputValidator = new FormValidator(
+const telInputValidator = new InputValidator(
   "#tel",
   "#tel-error",
   ".side-bar__submit-button"
 );
 
-const innInputValidator = new FormValidator(
+const innInputValidator = new InputValidator(
   "#inn",
   "#inn-error",
   ".side-bar__submit-button"
@@ -189,33 +253,14 @@ telInputValidator.validateInputByType("Формат: +9 999 999 99 99");
 innInputValidator.validateRequired("Укажите ИНН");
 innInputValidator.validateInn("Проверьте ИНН");
 
-cardContainer.renderCards();
-cardNotAvailableContainer.renderCards();
-
-productsHeaderNotAvailable.render();
-productsHeaderNotAvailable.setEventListeners();
-
-productsHeaderActive.render();
-productsHeaderActive.setEventListeners();
-
-const sideBar = new SideBar(
-  sumUpCountCheckedProducts(products),
-  sumUpPriceCheckedProducts(products),
-  sumUpOldPriceCheckedProducts(products)
-);
-sideBar.render();
-sideBar.setEventListeners();
-
+// Создаём экземпляры класса popup для оплаты и доставки, навешиваем на них слушатели событий
 const payPopup = new Popup("#pay-popup", ".popup__close-button");
 const deliveryPopup = new Popup("#delivery-popup", ".popup__close-button");
-
-const form = new Form(".recipient__input", "");
-
-form.setEventListeners();
 
 payPopup.setEventListeners();
 deliveryPopup.setEventListeners();
 
+// Навешиваем на кнопки открытия попапов слушатели событий
 editPayButton.addEventListener("click", () => payPopup.open());
 sideBarEditPayButton.addEventListener("click", () => payPopup.open());
 editDeliveryButton.addEventListener("click", () => deliveryPopup.open());
