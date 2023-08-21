@@ -1,4 +1,3 @@
-import { editPayButton, sideBarEditPayButton } from "./utils/constants.js";
 import { userProducts } from "./utils/userProducts.js";
 import { userInfo } from "./utils/userInfo.js";
 import CardContainer from "./components/CardContainer.js";
@@ -6,6 +5,7 @@ import ProductsHeaderActive from "./components/ProductsHeaderActive.js";
 import ProductsHeaderNotAvailable from "./components/ProductsHeaderNotAvailable.js";
 import Notify from "./components/Notify.js";
 import Delivery from "./components/Delivery.js";
+import Pay from "./components/Pay.js";
 import PopupWithDeliveryForm from "./components/PopupWithDeliveryForm.js";
 import PopupWithPayForm from "./components/PopupWithPayForm.js";
 import Counter from "./components/Counter.js";
@@ -159,8 +159,13 @@ const renderNotAvailableCard = (item) => {
   cardNotAvailableContainer.addCard(card.getCard());
 };
 
+// обоаботчики клика на кнопку edit для попапов
 const handleEditDelivery = () => {
   deliveryPopup.open();
+};
+
+const handleEditPay = () => {
+  payPopup.open();
 };
 
 const defineAdress = (userInfo) => {
@@ -183,13 +188,23 @@ const handleDeliveryFormChange = (adresses, points, del) => {
   sideBar.render();
 };
 
+const getPayCard = (cards) => {
+  return cards.filter((card) => card.checked)[0];
+};
+
 // Слушатель измений формы метода оплаты
 const handlePayFormChange = (cardId) => {
   userInfo.payCards.forEach((card) => {
-    card.checked = card.id === cardId ? true : false;
+    card.checked = card.id === cardId;
   });
 
-  console.log(userInfo.payCards);
+  const payCard = getPayCard(userInfo.payCards);
+
+  pay.update(payCard);
+  pay.render();
+
+  sideBar.updatePay(payCard);
+  sideBar.render();
 };
 
 // Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
@@ -253,6 +268,19 @@ const delivery = new Delivery(
 
 delivery.render();
 
+// Создаём экземпляр класса pay, отрисовываем его и навешиваем слушатели событий
+const pay = new Pay(
+  getPayCard(userInfo.payCards),
+  ".pay__system",
+  ".pay__number",
+  ".pay__date",
+  "#edit-pay",
+  handleEditPay
+);
+
+pay.render();
+pay.setEventListeners();
+
 // Создаём экземпляр класса sideBar, отрисовываем его и навешиваем слушатели событий
 const sideBar = new SideBar(
   sumUpCountCheckedProducts(products),
@@ -260,7 +288,9 @@ const sideBar = new SideBar(
   sumUpOldPriceCheckedProducts(products),
   userInfo.delivery,
   defineAdress(userInfo),
-  handleEditDelivery
+  getPayCard(userInfo.payCards),
+  handleEditDelivery,
+  handleEditPay
 );
 sideBar.render();
 sideBar.setEventListeners();
@@ -336,7 +366,3 @@ payPopup.setEventListeners();
 
 deliveryPopup.render();
 deliveryPopup.setEventListeners();
-
-// Навешиваем на кнопки открытия попапов слушатели событий
-editPayButton.addEventListener("click", () => payPopup.open());
-sideBarEditPayButton.addEventListener("click", () => payPopup.open());

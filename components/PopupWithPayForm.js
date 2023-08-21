@@ -26,19 +26,23 @@ export default class PopupWithPayForm extends Popup {
   }
 
   _defineCardClass(system) {
+    let className;
+
     switch (system) {
       case "mastercard":
-        this._class = "system system_type_mastercard";
+        className = "system system_type_mastercard";
         break;
       case "visa":
-        this._class = "system system_type_visa";
+        className = "system system_type_visa";
         break;
       case "maestro":
-        this._class = "system system_type_maestro";
+        className = "system system_type_maestro";
         break;
       default:
-        this._class = "system";
+        className = "system";
     }
+
+    return className;
   }
 
   _handleFormSubmit(evt) {
@@ -53,10 +57,9 @@ export default class PopupWithPayForm extends Popup {
   _getCard(card) {
     const cardElement = this._getTemplate();
 
-    this._defineCardClass(card.system);
-
     cardElement.querySelector(".form__text").textContent = card.number;
-    cardElement.querySelector("#radio-system").className = this._class;
+    cardElement.querySelector("#radio-system").className =
+      this._defineCardClass(card.system);
     cardElement.querySelector(".radiobutton__input").checked = card.checked;
     cardElement.querySelector(".radiobutton__input").value = card.id;
 

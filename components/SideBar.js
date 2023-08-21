@@ -5,13 +5,17 @@ export default class SideBar {
     sumOldPrice,
     delivery,
     adress,
-    handleEditDeliveryClick
+    { number, system },
+    handleEditDeliveryClick,
+    handleEditPayClick
   ) {
     this._sumPrice = sumPrice;
     this._sumOldPrice = sumOldPrice;
     this._sumCount = sumCount;
     this._delivery = delivery;
     this._adress = adress;
+    this._number = number;
+    this._system = system;
 
     this._price = document.querySelector(".side-bar__price");
     this._oldPrice = document.querySelector("#old-price");
@@ -26,7 +30,12 @@ export default class SideBar {
       "#side-bar-edit-delivery"
     );
 
+    this._cardElement = document.querySelector(".methods-pay__text");
+    this._systemElement = document.querySelector("#side-bar-system");
+    this._editPayButton = document.querySelector("#side-bar-edit-pay");
+
     this._handleEditDeliveryClick = handleEditDeliveryClick.bind(this);
+    this._handleEditPayClick = handleEditPayClick.bind(this);
   }
 
   _renderButton() {
@@ -37,11 +46,33 @@ export default class SideBar {
     }
   }
 
+  _defineCardClass(system) {
+    let className;
+
+    switch (system) {
+      case "mastercard":
+        className = "system system_type_mastercard";
+        break;
+      case "visa":
+        className = "system system_type_visa";
+        break;
+      case "maestro":
+        className = "system system_type_maestro";
+        break;
+      default:
+        className = "system";
+    }
+
+    return className;
+  }
+
   setEventListeners() {
     this._editDeliveryButton.addEventListener(
       "click",
       this._handleEditDeliveryClick
     );
+
+    this._editPayButton.addEventListener("click", this._handleEditPayClick);
 
     this._checkbox.addEventListener("change", this._renderButton.bind(this));
   }
@@ -57,6 +88,11 @@ export default class SideBar {
     this._adress = adress;
   }
 
+  updatePay({ number, system }) {
+    this._number = number;
+    this._system = system;
+  }
+
   render() {
     this._price.textContent = this._sumPrice.toLocaleString();
     this._oldPrice.textContent = `${this._sumOldPrice.toLocaleString()} сом`;
@@ -70,5 +106,8 @@ export default class SideBar {
         ? "Доставка в пункт выдачи"
         : "Курьерская доставка";
     this._adressElement.textContent = this._adress;
+
+    this._cardElement.textContent = this._number;
+    this._systemElement.className = this._defineCardClass(this._system);
   }
 }
