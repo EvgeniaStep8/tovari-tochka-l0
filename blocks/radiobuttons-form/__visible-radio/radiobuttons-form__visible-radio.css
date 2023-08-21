@@ -1,0 +1,13 @@
+.radiobuttons-form__visible-radio {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  border: 2px solid rgba(203, 17, 171, 0.15);
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  padding: 8px 0;
+}

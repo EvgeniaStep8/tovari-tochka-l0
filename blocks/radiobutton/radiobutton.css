@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   margin-bottom: 19px;
+  cursor: pointer;
 }
 
 .radiobutton:last-of-type {
-  margin-bottom: 57px;
+  margin-bottom: 0;
 }

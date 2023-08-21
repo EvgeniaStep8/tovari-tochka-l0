@@ -5,10 +5,12 @@ import {
   sideBarEditDeliveryButton,
 } from "./utils/constants.js";
 import { userProducts } from "./utils/userProducts.js";
+import { userInfo } from "./utils/userInfo.js";
 import CardContainer from "./components/CardContainer.js";
 import ProductsHeaderActive from "./components/ProductsHeaderActive.js";
 import ProductsHeaderNotAvailable from "./components/ProductsHeaderNotAvailable.js";
 import Notify from "./components/Notify.js";
+import PopupWithDeliveryForm from "./components/PopupWithDeliveryForm.js";
 import Popup from "./components/Popup.js";
 import Counter from "./components/Counter.js";
 import ProductCard from "./components/ProductCard.js";
@@ -161,6 +163,10 @@ const renderNotAvailableCard = (item) => {
   cardNotAvailableContainer.addCard(card.getCard());
 };
 
+const handleDeliveryFormChange = (adresses, points, delivery) => {
+  console.log(adresses, points, delivery);
+};
+
 // Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
 userProducts.forEach((product) => {
   product.countInStock > 0
@@ -263,9 +269,22 @@ innInputValidator.validateInn("Проверьте ИНН");
 
 // Создаём экземпляры класса popup для оплаты и доставки, навешиваем на них слушатели событий
 const payPopup = new Popup("#pay-popup", ".popup__close-button");
-const deliveryPopup = new Popup("#delivery-popup", ".popup__close-button");
+const deliveryPopup = new PopupWithDeliveryForm(
+  "#delivery-popup",
+  ".popup__close-button",
+  "#radio",
+  "#delivery-form",
+  ".form__inputs",
+  ".form__title",
+  "#courier-way",
+  "#point-way",
+  userInfo,
+  handleDeliveryFormChange
+);
 
 payPopup.setEventListeners();
+
+deliveryPopup.render();
 deliveryPopup.setEventListeners();
 
 // Навешиваем на кнопки открытия попапов слушатели событий

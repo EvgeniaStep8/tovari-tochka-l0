@@ -1,6 +1,6 @@
-const userInfo = {
+export const userInfo = {
   id: 1,
-  adress: [
+  adresses: [
     {
       name: "Бишкек, улица Табышалиева, 57",
       checked: true,
@@ -17,10 +17,11 @@ const userInfo = {
       id: 3,
     },
   ],
-  pointAdress: [
+  points: [
     {
-      name: "Бишкек, улица Табышалиева, 8",
+      name: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
       checked: true,
+      raiting: 4.99,
       id: 1,
     },
   ],
@@ -54,4 +55,5 @@ const userInfo = {
       id: 4,
     },
   ],
+  delivery: "point",
 };

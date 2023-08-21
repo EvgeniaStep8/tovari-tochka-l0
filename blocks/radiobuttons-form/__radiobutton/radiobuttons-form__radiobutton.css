@@ -1,0 +1,10 @@
+.radiobuttons-form__radiobutton {
+  position: relative;
+  height: 36px;
+  flex: 1 0 0;
+  margin-right: 8px;
+}
+
+.radiobuttons-form__radiobutton:last-of-type {
+  margin-right: 0;
+}

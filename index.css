@@ -184,8 +184,15 @@
 @import url("./blocks/radiobutton/radiobutton.css");
 @import url("./blocks/radiobutton/__input/radiobutton__input.css");
 @import url("./blocks/radiobutton/__visible-radio/radiobutton__visible-radio.css");
+/* radiobuttons-form */
+@import url("./blocks/radiobuttons-form/radiobuttons-form.css");
+@import url("./blocks/radiobuttons-form/__radiobutton/radiobuttons-form__radiobutton.css");
+@import url("./blocks/radiobuttons-form/__input/radiobuttons-form__input.css");
+@import url("./blocks/radiobuttons-form/__visible-radio/radiobuttons-form__visible-radio.css");
 /* form */
 @import url("./blocks/form/form.css");
-@import url("./blocks/form/__subtitle/form__subtitle.css");
+@import url("./blocks/form/__title/form__title.css");
+@import url("./blocks/form/__container/form__container.css");
 @import url("./blocks/form/__text/form__text.css");
+@import url("./blocks/form/__icon/form__icon.css");
 @import url("./blocks/form/__submit-button/form__submit-button.css");
