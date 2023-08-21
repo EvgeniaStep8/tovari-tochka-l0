@@ -122,12 +122,16 @@
 @import url("./blocks/delivery/__item/delivery__item.css");
 @import url("./blocks/delivery/__image/delivery__image.css");
 @import url("./blocks/delivery/__notify/delivery__notify.css");
+/* system */
+@import url("./blocks/system/system.css");
+@import url("./blocks/system/_type/_maestro/system_type_maestro.css");
+@import url("./blocks/system/_type/_mastercard/system_type_mastercard.css");
+@import url("./blocks/system/_type/_visa/system_type_visa.css");
 /* pay */
 @import url("./blocks/pay/pay.css");
 @import url("./blocks/pay/__container/pay__container.css");
 @import url("./blocks/pay/__button/pay__button.css");
 @import url("./blocks/pay/__card/pay__card.css");
-@import url("./blocks/pay/__icon/pay__icon.css");
 @import url("./blocks/pay/__number/pay__number.css");
 @import url("./blocks/pay/__date/pay__date.css");
 @import url("./blocks/pay/__info/pay__info.css");

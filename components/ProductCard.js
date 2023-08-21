@@ -61,12 +61,16 @@ export default class ProductCard {
     this._image.src = this._link;
     this._image.alt = this._name;
 
-    this._card.querySelector(
-      ".card__text_type_color"
-    ).textContent = `Цвет: ${this._color}`;
-    this._card.querySelector(
-      ".card__text_type_size"
-    ).textContent = `Размер: ${this._size}`;
+    if (this._color !== "none") {
+      this._card.querySelector(
+        ".card__text_type_color"
+      ).textContent = `Цвет: ${this._color}`;
+    }
+    if (this._size !== "none") {
+      this._card.querySelector(
+        ".card__text_type_size"
+      ).textContent = `Размер: ${this._size}`;
+    }
   }
 
   getCard() {

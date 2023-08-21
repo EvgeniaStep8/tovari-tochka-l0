@@ -26,7 +26,7 @@ export const userInfo = {
       id: 1,
     },
   ],
-  payCard: [
+  payCards: [
     {
       number: "1234 56•• •••• 1234",
       date: "01/30",

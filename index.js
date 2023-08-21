@@ -1,9 +1,4 @@
-import {
-  editPayButton,
-  sideBarEditPayButton,
-  editDeliveryButton,
-  sideBarEditDeliveryButton,
-} from "./utils/constants.js";
+import { editPayButton, sideBarEditPayButton } from "./utils/constants.js";
 import { userProducts } from "./utils/userProducts.js";
 import { userInfo } from "./utils/userInfo.js";
 import CardContainer from "./components/CardContainer.js";
@@ -12,7 +7,7 @@ import ProductsHeaderNotAvailable from "./components/ProductsHeaderNotAvailable.
 import Notify from "./components/Notify.js";
 import Delivery from "./components/Delivery.js";
 import PopupWithDeliveryForm from "./components/PopupWithDeliveryForm.js";
-import Popup from "./components/Popup.js";
+import PopupWithPayForm from "./components/PopupWithPayForm.js";
 import Counter from "./components/Counter.js";
 import ProductCard from "./components/ProductCard.js";
 import ProductCardActive from "./components/ProductCardActive.js";
@@ -188,6 +183,15 @@ const handleDeliveryFormChange = (adresses, points, del) => {
   sideBar.render();
 };
 
+// Слушатель измений формы метода оплаты
+const handlePayFormChange = (cardId) => {
+  userInfo.payCards.forEach((card) => {
+    card.checked = card.id === cardId ? true : false;
+  });
+
+  console.log(userInfo.payCards);
+};
+
 // Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
 userProducts.forEach((product) => {
   product.countInStock > 0
@@ -305,11 +309,19 @@ innInputValidator.validateRequired("Укажите ИНН");
 innInputValidator.validateInn("Проверьте ИНН");
 
 // Создаём экземпляры класса popup для оплаты и доставки, навешиваем на них слушатели событий
-const payPopup = new Popup("#pay-popup", ".popup__close-button");
+const payPopup = new PopupWithPayForm(
+  "#pay-popup",
+  ".popup__close-button",
+  "#pay-radio",
+  "#pay-form",
+  ".form__inputs",
+  userInfo.payCards,
+  handlePayFormChange
+);
 const deliveryPopup = new PopupWithDeliveryForm(
   "#delivery-popup",
   ".popup__close-button",
-  "#radio",
+  "#delivery-radio",
   "#delivery-form",
   ".form__inputs",
   ".form__title",
@@ -319,6 +331,7 @@ const deliveryPopup = new PopupWithDeliveryForm(
   handleDeliveryFormChange
 );
 
+payPopup.render();
 payPopup.setEventListeners();
 
 deliveryPopup.render();

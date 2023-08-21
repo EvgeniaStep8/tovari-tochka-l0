@@ -51,9 +51,9 @@ export default class ProdutsHeaderActive extends ProductsHeader {
   }
 
   render() {
-    this._info.textContent = `${
+    this._info.textContent = `${this._count} ${this._defineDeclinationProducts(
       this._count
-    } товаров · ${this._sum.toLocaleString()} сом`;
+    )} · ${this._sum.toLocaleString()} сом`;
     this._checkboxInput.checked = this._isChecked;
   }
 }

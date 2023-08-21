@@ -29,6 +29,8 @@ export default class ProductsHeaderNotAvailable extends ProductsHeader {
   }
 
   render() {
-    this._info.textContent = `Отсутствуют · ${this._count} товара`;
+    this._info.textContent = `Отсутствуют · ${
+      this._count
+    } ${this._defineDeclinationProducts(this._count)}`;
   }
 }

@@ -1,0 +1,10 @@
+.system {
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: var(--background-smoky-color);
+  margin-right: 8px;
+  background-image: url("../../images/mir-icon.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
