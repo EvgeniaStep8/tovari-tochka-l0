@@ -1,6 +1,6 @@
 .card__price {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   flex: 1 0 0;
 }

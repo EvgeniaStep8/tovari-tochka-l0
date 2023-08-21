@@ -102,10 +102,10 @@
 @import url("./blocks/card/__price-info-modal/card__price-info-modal.css");
 /* container-title */
 @import url("./blocks/container-title/container-title.css");
-/*  informer */
+/*  informer 
 @import url("./blocks/informer/informer.css");
 @import url("./blocks/informer/__text/informer__text.css");
-@import url("./blocks/informer/__accent/informer__accent.css");
+@import url("./blocks/informer/__accent/informer__accent.css"); */
 /* delivery */
 @import url("./blocks/delivery/delivery.css");
 @import url("./blocks/delivery/__container/delivery__container.css");

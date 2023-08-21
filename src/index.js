@@ -1,3 +1,4 @@
+import "./index.css";
 import { userProducts } from "./utils/userProducts.js";
 import { userInfo } from "./utils/userInfo.js";
 import CardContainer from "./components/CardContainer.js";
