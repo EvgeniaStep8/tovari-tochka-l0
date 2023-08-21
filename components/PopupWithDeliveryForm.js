@@ -71,7 +71,7 @@ export default class PopupWithDeliveryForm extends Popup {
   _updatePoint() {
     this._checkedPointId = +this._form.elements["delivery"].value;
     this._points.forEach((point) => {
-      point.checked = point.id === this._checkedAdressId;
+      point.checked = point.id === this._checkedPointId;
     });
   }
 
@@ -81,6 +81,8 @@ export default class PopupWithDeliveryForm extends Popup {
     this._delivery === "courier" ? this._updateAdress() : this._updatePoint();
 
     this._handleFormChange(this._adresses, this._points, this._delivery);
+
+    this.close();
   }
 
   setEventListeners() {

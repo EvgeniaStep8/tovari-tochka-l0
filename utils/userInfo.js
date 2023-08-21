@@ -22,6 +22,7 @@ export const userInfo = {
       name: "Бишкек, улица Ахматбека Суюмбаева, 12/1",
       checked: true,
       raiting: 4.99,
+      time: "Ежедневно с 10 до 21 ",
       id: 1,
     },
   ],

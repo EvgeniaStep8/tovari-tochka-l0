@@ -10,6 +10,7 @@ import CardContainer from "./components/CardContainer.js";
 import ProductsHeaderActive from "./components/ProductsHeaderActive.js";
 import ProductsHeaderNotAvailable from "./components/ProductsHeaderNotAvailable.js";
 import Notify from "./components/Notify.js";
+import Delivery from "./components/Delivery.js";
 import PopupWithDeliveryForm from "./components/PopupWithDeliveryForm.js";
 import Popup from "./components/Popup.js";
 import Counter from "./components/Counter.js";
@@ -163,8 +164,28 @@ const renderNotAvailableCard = (item) => {
   cardNotAvailableContainer.addCard(card.getCard());
 };
 
-const handleDeliveryFormChange = (adresses, points, delivery) => {
-  console.log(adresses, points, delivery);
+const handleEditDelivery = () => {
+  deliveryPopup.open();
+};
+
+const defineAdress = (userInfo) => {
+  const adressName = (
+    userInfo.delivery === "point"
+      ? userInfo.points.filter((point) => point.checked === true)
+      : userInfo.adresses.filter((adress) => adress.checked === true)
+  )[0].name;
+  return adressName;
+};
+
+// Слушатель измений формы доставки
+const handleDeliveryFormChange = (adresses, points, del) => {
+  userInfo.adresses = adresses;
+  userInfo.points = points;
+  userInfo.delivery = del;
+
+  delivery.updateDeliveryInfo(userInfo);
+  sideBar.updateDelivery(userInfo.delivery, defineAdress(userInfo));
+  sideBar.render();
 };
 
 // Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
@@ -215,11 +236,27 @@ const cardNotAvailableContainer = new CardContainer(
 cardContainer.renderCards();
 cardNotAvailableContainer.renderCards();
 
+// Создаём экземпляр класса delivery, отрисовываем его и навешиваем слушатели событий
+const delivery = new Delivery(
+  "#delivery-way-title",
+  ".delivery__point-name",
+  ".delivery__rating",
+  ".delivery__working-hours",
+  "#edit-delivery",
+  userInfo,
+  handleEditDelivery
+);
+
+delivery.render();
+
 // Создаём экземпляр класса sideBar, отрисовываем его и навешиваем слушатели событий
 const sideBar = new SideBar(
   sumUpCountCheckedProducts(products),
   sumUpPriceCheckedProducts(products),
-  sumUpOldPriceCheckedProducts(products)
+  sumUpOldPriceCheckedProducts(products),
+  userInfo.delivery,
+  defineAdress(userInfo),
+  handleEditDelivery
 );
 sideBar.render();
 sideBar.setEventListeners();
@@ -290,5 +327,3 @@ deliveryPopup.setEventListeners();
 // Навешиваем на кнопки открытия попапов слушатели событий
 editPayButton.addEventListener("click", () => payPopup.open());
 sideBarEditPayButton.addEventListener("click", () => payPopup.open());
-editDeliveryButton.addEventListener("click", () => deliveryPopup.open());
-sideBarEditDeliveryButton.addEventListener("click", () => deliveryPopup.open());
