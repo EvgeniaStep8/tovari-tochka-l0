@@ -1,6 +1,14 @@
 .counter {
   border-radius: 8px;
   background: var(--background-white-color);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   padding: 3px 0 10px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .counter {
+    padding: 1px 0 4px;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
 }

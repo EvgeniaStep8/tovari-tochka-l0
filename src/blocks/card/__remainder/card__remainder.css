@@ -5,3 +5,11 @@
   line-height: 16px;
   margin-bottom: 8px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .card__remainder {
+    margin-right: 30px;
+    margin-bottom: 0;
+    letter-spacing: -0.28px;
+  }
+}

@@ -37,8 +37,8 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    price: 10500,
-    oldPrice: 11500,
+    price: 10500.235,
+    oldPrice: 11500.235,
     checked: true,
   },
   {

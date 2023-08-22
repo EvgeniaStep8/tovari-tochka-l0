@@ -1,0 +1,4 @@
+.informer__accent {
+  color: var(--system-green-color);
+  border-bottom: dashed 1px rgba(12, 180, 119, 0.2);
+}

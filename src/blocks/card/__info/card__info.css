@@ -1,4 +1,10 @@
 .card__info {
-  width: 275px;
+  max-width: 250px;
   margin-right: 17px;
+}
+
+@media screen and (max-width: 767.98px) {
+  .card__info {
+    margin-right: 0;
+  }
 }

@@ -4,3 +4,9 @@
   align-items: flex-end;
   margin-bottom: 8px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .side-bar__header {
+    margin-bottom: 4px;
+  }
+}

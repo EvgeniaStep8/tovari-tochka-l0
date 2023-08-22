@@ -71,6 +71,12 @@ export default class ProductCard {
         ".card__text_type_size"
       ).textContent = `Размер: ${this._size}`;
     }
+
+    if (this._color === "none" && this._size === "none") {
+      this._card
+        .querySelector(".card__characteristics")
+        .classList.add("card__characteristics_empty");
+    }
   }
 
   getCard() {

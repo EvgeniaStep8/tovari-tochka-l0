@@ -66,19 +66,24 @@
 @import url("./blocks/info-modal/__container/info-modal__container.css");
 @import url("./blocks/info-modal/__text/_color/_gray/info-modal__text_color_gray.css");
 /* cards */
+@import url("./blocks/cards/cards.css");
 @import url("./blocks/cards/_hidden/cards_hidden.css");
 /* card */
 @import url("./blocks/card/card.css");
+@import url("./blocks/card/__flex/card__flex.css");
 @import url("./blocks/card/__image-container/card__image-container.css");
 @import url("./blocks/card/__checkbox/card__checkbox.css");
 @import url("./blocks/card/__visible-checkbox/card__visible-checkbox.css");
 @import url("./blocks/card/__image/card__image.css");
 @import url("./blocks/card/__image/not-available/card__image_not-available.css");
 @import url("./blocks/card/__info/card__info.css");
+@import url("./blocks/card/__info/_not-available/card__info_not-available.css");
 @import url("./blocks/card/__name/card__name.css");
 @import url("./blocks/card/__name/_not-available/card__name_not-available.css");
 @import url("./blocks/card/__characteristics/card__characteristics.css");
+@import url("./blocks/card/__characteristics/_empty/card__characteristics_empty.css");
 @import url("./blocks/card/__text/card__text.css");
+@import url("./blocks/card/__text/_type/_size/card__text_type_size.css");
 @import url("./blocks/card/__text/_not-available/card__text_not-available.css");
 @import url("./blocks/card/__providers/card__providers.css");
 @import url("./blocks/card/__stock/card__stock.css");
@@ -97,15 +102,16 @@
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__price-container/card__price-container.css");
 @import url("./blocks/card/__new-price/card__new-price.css");
+@import url("./blocks/card/__new-price/_size/_small/card__new-price_size_small.css");
 @import url("./blocks/card/__currency/card__currency.css");
 @import url("./blocks/card/__old-price.css/card__old-price.css");
 @import url("./blocks/card/__price-info-modal/card__price-info-modal.css");
 /* container-title */
 @import url("./blocks/container-title/container-title.css");
-/*  informer 
+/*  informer */
 @import url("./blocks/informer/informer.css");
 @import url("./blocks/informer/__text/informer__text.css");
-@import url("./blocks/informer/__accent/informer__accent.css"); */
+@import url("./blocks/informer/__accent/informer__accent.css");
 /* delivery */
 @import url("./blocks/delivery/delivery.css");
 @import url("./blocks/delivery/__container/delivery__container.css");

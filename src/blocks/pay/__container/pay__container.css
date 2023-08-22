@@ -4,7 +4,7 @@
   margin-bottom: 16px;
 }
 
-@media screen and (max-widh: 767.98px) {
+@media screen and (max-width: 767.98px) {
   .pay__container {
     margin-bottom: 8px;
   }

@@ -4,3 +4,13 @@
   line-height: 24px;
   margin-bottom: 8px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .card__name {
+    font-size: 14px;
+    line-height: 20px;
+    max-height: 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

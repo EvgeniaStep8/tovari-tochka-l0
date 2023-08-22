@@ -40,11 +40,11 @@ export default class ProductCardActive extends ProductCard {
   }
 
   _calculateProductsPrice() {
-    return this._price * this._count;
+    return Math.floor(this._price * this._count);
   }
 
   _calculateProductsOldPrice() {
-    return this._oldPrice * this._count;
+    return Math.floor(this._oldPrice * this._count);
   }
 
   _renderRemainder() {
@@ -126,11 +126,24 @@ export default class ProductCardActive extends ProductCard {
     this._cardRemainder = this._card.querySelector(".card__remainder");
     this._renderRemainder();
 
-    this._newCardPrice = this._card.querySelector(".card__new-price");
-    this._oldCardPrice = this._card.querySelector(".card__old-price");
+    this._newCardPrice = this._card.querySelector("#card-price");
+    this._oldCardPrice = this._card.querySelector("#card-old-price");
+    this._newCardPriceMob = this._card.querySelector("#card-price-mobile");
+    this._oldCardPriceMob = this._card.querySelector("#card-old-price-mobile");
+
     this._newCardPrice.textContent =
       this._calculateProductsPrice().toLocaleString();
+    if (this._newCardPrice.textContent.length > 6) {
+      this._newCardPrice.classList.add("card__new-price_size_small");
+    }
     this._oldCardPrice.textContent = `${this._calculateProductsOldPrice().toLocaleString()} сом`;
+
+    this._newCardPriceMob.textContent =
+      this._calculateProductsPrice().toLocaleString();
+    if (this._newCardPrice.textContent.length > 6) {
+      this._newCardPrice.classList.add("card__new-price_size_small");
+    }
+    this._oldCardPriceMob.textContent = `${this._calculateProductsOldPrice().toLocaleString()} сом`;
 
     this._priceModal = this._card.querySelector(".card__price-info-modal");
 
@@ -150,8 +163,21 @@ export default class ProductCardActive extends ProductCard {
 
   updatePrice(count) {
     this._count = count;
-    this._oldCardPrice.textContent = this._calculateProductsOldPrice();
-    this._newCardPrice.textContent = this._calculateProductsPrice();
+
+    this._newCardPrice.textContent =
+      this._calculateProductsPrice().toLocaleString();
+    if (this._newCardPrice.textContent.length > 6) {
+      this._newCardPrice.classList.add("card__new-price_size_small");
+    }
+    this._oldCardPrice.textContent = `${this._calculateProductsOldPrice().toLocaleString()} сом`;
+
+    this._newCardPriceMob.textContent =
+      this._calculateProductsPrice().toLocaleString();
+    if (this._newCardPrice.textContent.length > 6) {
+      this._newCardPrice.classList.add("card__new-price_size_small");
+    }
+    this._oldCardPriceMob.textContent = `${this._calculateProductsOldPrice().toLocaleString()} сом`;
+
     this._renderRemainder();
   }
 }

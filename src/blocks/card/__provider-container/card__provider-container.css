@@ -1,3 +1,9 @@
 .card__provider-container {
   display: flex;
 }
+
+@media screen and (max-width: 767.98px) {
+  .card__provider-container {
+    display: none;
+  }
+}
