@@ -3,6 +3,16 @@
   margin-right: 43px;
 }
 
-.nav-bar__link:last-child {
+.nav-bar__link:nth-of-type(3n) {
   margin-right: 0;
+}
+
+@media screen and (max-width: 767.98px) {
+  .nav-bar__link {
+    margin-right: 0;
+  }
+
+  .nav-bar__link:nth-of-type(3n) {
+    margin-right: 0;
+  }
 }

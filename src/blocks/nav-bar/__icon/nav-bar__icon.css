@@ -4,4 +4,15 @@
   max-width: 28px;
   aspect-ratio: 1;
   margin-bottom: 7px;
+  fill: var(--system-white-color);
+}
+
+@media screen and (max-width: 767.98px) {
+  .nav-bar__icon {
+    fill: #cccccc;
+  }
+
+  .nav-bar__icon:hover {
+    fill: var(--system-magenta-color);
+  }
 }

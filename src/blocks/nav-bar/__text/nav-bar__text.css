@@ -4,3 +4,9 @@
   line-height: 16px;
   color: var(--system-white-color);
 }
+
+@media screen and (max-width: 767.98px) {
+  .nav-bar__text {
+    display: none;
+  }
+}

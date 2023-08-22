@@ -1,0 +1,9 @@
+.card__price-container_mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .card__price-container_mobile {
+    display: flex;
+  }
+}

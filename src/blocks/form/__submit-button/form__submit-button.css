@@ -2,3 +2,10 @@
   max-width: 164px;
   margin-left: 0;
 }
+
+@media screen and (max-width: 767.98px) {
+  .form__submit-button {
+    width: 100%;
+    max-width: 768px;
+  }
+}

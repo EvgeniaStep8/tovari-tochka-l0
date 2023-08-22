@@ -11,3 +11,10 @@
   font-weight: 700;
   line-height: 16px;
 }
+
+@media screen and (max-width: 767.98px) {
+  .notify {
+    right: -6px;
+    top: -5px;
+  }
+}

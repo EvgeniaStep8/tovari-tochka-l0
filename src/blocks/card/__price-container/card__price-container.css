@@ -3,7 +3,7 @@
   align-items: baseline;
 }
 
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 1023.98px) {
   .card__price-container {
     margin-bottom: 3px;
   }

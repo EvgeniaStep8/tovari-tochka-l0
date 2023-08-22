@@ -7,7 +7,9 @@ export default class InputValidator {
       this._handleDeliteErrorRequirder.bind(this);
     this._handleDeliteErrorInn = this._handleDeliteErrorInn.bind(this);
     this._handleDeliteErrorTypeOfInput =
-      this._handleDeliteErrorTypeOfInput(this);
+      this._handleDeliteErrorTypeOfInput.bind(this);
+    this._handleDeliteErrorTel = this._handleDeliteErrorTel.bind(this);
+    this._telPattern = /^((\+7)+([0-9\-\s]){14})$/;
   }
 
   _isRequiredValid() {
@@ -20,6 +22,10 @@ export default class InputValidator {
 
   _isInputTypeValid() {
     return this._input.checkValidity();
+  }
+
+  _isTelValid() {
+    return this._telPattern.test(this._input.value);
   }
 
   _handleError(errorMessage) {
@@ -39,15 +45,23 @@ export default class InputValidator {
   }
 
   _handleDeliteErrorInn() {
-    if (this._isInnValid()) {
+    if (this._isInnValid() || this._input.value === "") {
       this._inputError.textContent = "";
       this._input.classList.remove("recipient__input_type_error");
       this._input.removeEventListener("input", this._handleDeliteErrorInn);
     }
   }
 
+  _handleDeliteErrorTel() {
+    if (this._isTelValid() || this._input.value === "") {
+      this._inputError.textContent = "";
+      this._input.classList.remove("recipient__input_type_error");
+      this._input.removeEventListener("input", this._handleDeliteErrorTel);
+    }
+  }
+
   _handleDeliteErrorTypeOfInput() {
-    if (this._isInputTypeValid()) {
+    if (this._isInputTypeValid() || this._input.value === "") {
       this._inputError.textContent = "";
       this._input.classList.remove("recipient__input_type_error");
       this._input.removeEventListener(
@@ -55,6 +69,27 @@ export default class InputValidator {
         this._handleDeliteErrorTypeOfInput
       );
     }
+  }
+
+  formatTel() {
+    this._input.addEventListener("click", () => {
+      if (this._input.value.length === 0) {
+        this._input.value = "+7 ";
+      }
+    });
+
+    this._input.addEventListener("keydown", (evt) => {
+      if (evt.key !== "Backspace") {
+        if (this._input.value.length === 6) {
+          this._input.value += " ";
+        } else if (
+          this._input.value.length === 10 ||
+          this._input.value.length === 13
+        ) {
+          this._input.value += "-";
+        }
+      }
+    });
   }
 
   validateRequired(errorMessage) {
@@ -83,6 +118,15 @@ export default class InputValidator {
           "input",
           this._handleDeliteErrorTypeOfInput
         );
+      }
+    });
+  }
+
+  validateTel(errorMessage) {
+    this._input.addEventListener("blur", () => {
+      if (!this._isTelValid()) {
+        this._handleError(errorMessage);
+        this._input.addEventListener("input", this._handleDeliteErrorTel);
       }
     });
   }

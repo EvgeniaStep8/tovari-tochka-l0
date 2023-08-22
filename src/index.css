@@ -29,6 +29,7 @@
 /* nav-bar */
 @import url("./blocks/nav-bar/nav-bar.css");
 @import url("./blocks/nav-bar/__link/nav-bar__link.css");
+@import url("./blocks/nav-bar/__link/_mobile/nav-bar__link_mobile.css");
 @import url("./blocks/nav-bar/__icon/nav-bar__icon.css");
 @import url("./blocks/nav-bar/__text/nav-bar__text.css");
 /* content */
@@ -101,6 +102,7 @@
 @import url("./blocks/card/__icon/_visible/card__icon_visible.css");
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__price-container/card__price-container.css");
+@import url("./blocks/card/__price-container/_mobile/card__price-container_mobile.css");
 @import url("./blocks/card/__new-price/card__new-price.css");
 @import url("./blocks/card/__new-price/_size/_small/card__new-price_size_small.css");
 @import url("./blocks/card/__currency/card__currency.css");
@@ -183,13 +185,6 @@
 /* footer */
 @import url("./blocks/footer/footer.css");
 @import url("./blocks/footer/__copyright/footer__copyright.css");
-/* popup */
-@import url("./blocks/popup/popup.css");
-@import url("./blocks/popup/_opened/popup__opened.css");
-@import url("./blocks/popup/__container/popup__container.css");
-@import url("./blocks/popup/__header/popup__header.css");
-@import url("./blocks/popup/__title/popup__title.css");
-@import url("./blocks/popup/__close-button/popup__close-button.css");
 /* radiobutton */
 @import url("./blocks/radiobutton/radiobutton.css");
 @import url("./blocks/radiobutton/__input/radiobutton__input.css");
@@ -201,8 +196,16 @@
 @import url("./blocks/radiobuttons-form/__visible-radio/radiobuttons-form__visible-radio.css");
 /* form */
 @import url("./blocks/form/form.css");
-@import url("./blocks/form/__title/form__title.css");
 @import url("./blocks/form/__container/form__container.css");
 @import url("./blocks/form/__text/form__text.css");
 @import url("./blocks/form/__icon/form__icon.css");
 @import url("./blocks/form/__submit-button/form__submit-button.css");
+/* popup */
+@import url("./blocks/popup/popup.css");
+@import url("./blocks/popup/_opened/popup__opened.css");
+@import url("./blocks/popup/__container/popup__container.css");
+@import url("./blocks/popup/__header/popup__header.css");
+@import url("./blocks/popup/__title/popup__title.css");
+@import url("./blocks/popup/__form-title/popup__form-title.css");
+@import url("./blocks/popup/__radiobutton/popup__radiobutton.css");
+@import url("./blocks/popup/__close-button/popup__close-button.css");

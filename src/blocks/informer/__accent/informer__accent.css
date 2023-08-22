@@ -1,4 +1,23 @@
 .informer__accent {
   color: var(--system-green-color);
   border-bottom: dashed 1px rgba(12, 180, 119, 0.2);
+  position: relative;
+  cursor: pointer;
+}
+
+.informer__accent:hover::after {
+  content: "Если товары вам не подойдут, мы вернем их обратно на склад — это бесплатно";
+  display: block;
+  position: absolute;
+  top: 22px;
+  left: 0;
+  transform: translateX(-50%);
+  padding: 10px 16px 14px;
+  width: 288px;
+  color: var(--text-black-color);
+  background-color: var(--background-white-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+    0px 2px 10px 0px rgba(0, 0, 0, 0.15);
+  z-index: 5;
 }

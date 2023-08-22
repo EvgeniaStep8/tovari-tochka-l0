@@ -335,7 +335,8 @@ lastNameInputValidator.validateRequired("Введите фамилию");
 emailInputValidator.validateRequired("Укажите электронную почту");
 emailInputValidator.validateInputByType("Проверьте адрес электронной почты");
 telInputValidator.validateRequired("Укажите номер телефона");
-telInputValidator.validateInputByType("Формат: +9 999 999 99 99");
+telInputValidator.formatTel();
+telInputValidator.validateTel("Формат: +7 999 999-99-99");
 innInputValidator.validateRequired("Укажите ИНН");
 innInputValidator.validateInn("Проверьте ИНН");
 
@@ -355,7 +356,7 @@ const deliveryPopup = new PopupWithDeliveryForm(
   "#delivery-radio",
   "#delivery-form",
   ".form__inputs",
-  ".form__title",
+  ".popup__form-title",
   "#courier-way",
   "#point-way",
   userInfo,

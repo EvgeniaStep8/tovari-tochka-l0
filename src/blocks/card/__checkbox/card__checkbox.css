@@ -3,7 +3,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 1023.98px) {
   .card__checkbox {
     position: absolute;
     top: 4px;

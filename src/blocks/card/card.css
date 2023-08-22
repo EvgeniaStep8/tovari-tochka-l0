@@ -1,8 +1,7 @@
 .card {
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
-  margin-bottom: 17px;
+  margin-bottom: 29px;
   align-items: flex-start;
   cursor: pointer;
 }
@@ -11,7 +10,7 @@
   margin-bottom: 0;
 }
 
-@media screen and (max-width: 767.98px) {
+@media screen and (max-width: 1023.98px) {
   .card {
     flex-direction: column;
     border-bottom: solid 1px var(--rulers-rulers-colors);

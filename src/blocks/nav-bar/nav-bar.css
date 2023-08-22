@@ -5,6 +5,14 @@
 
 @media screen and (max-width: 767.98px) {
   .nav-bar {
-    display: none;
+    position: fixed;
+    flex-direction: row-reverse;
+    background-color: var(--background-white-color);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 13px 6px;
+    justify-content: space-between;
+    z-index: 8;
   }
 }
