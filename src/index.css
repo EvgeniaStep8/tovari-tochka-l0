@@ -77,6 +77,7 @@
 @import url("./blocks/card/__visible-checkbox/card__visible-checkbox.css");
 @import url("./blocks/card/__image/card__image.css");
 @import url("./blocks/card/__image/not-available/card__image_not-available.css");
+@import url("./blocks/card/__size/card__size.css");
 @import url("./blocks/card/__info/card__info.css");
 @import url("./blocks/card/__info/_not-available/card__info_not-available.css");
 @import url("./blocks/card/__name/card__name.css");

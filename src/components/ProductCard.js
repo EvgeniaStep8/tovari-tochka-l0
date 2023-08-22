@@ -70,6 +70,8 @@ export default class ProductCard {
       this._card.querySelector(
         ".card__text_type_size"
       ).textContent = `Размер: ${this._size}`;
+
+      this._card.querySelector(".card__size").textContent = this._size;
     }
 
     if (this._color === "none" && this._size === "none") {

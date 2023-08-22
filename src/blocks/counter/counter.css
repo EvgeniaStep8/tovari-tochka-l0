@@ -7,7 +7,7 @@
 
 @media screen and (max-width: 1023.98px) {
   .counter {
-    padding: 1px 0 4px;
+    padding: 1px 5px 4px 6px;
     margin-right: 16px;
     margin-bottom: 0;
   }

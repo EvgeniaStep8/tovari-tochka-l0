@@ -1,0 +1,19 @@
+.card__size {
+  display: none;
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  background-color: var(--background-white-color);
+  border-radius: 6px;
+  padding: 0 4px 3px;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .card__size {
+    display: inline;
+  }
+}

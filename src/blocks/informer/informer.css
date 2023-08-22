@@ -3,15 +3,6 @@
   align-items: center;
 }
 
-.informer::before {
-  content: "";
-  display: block;
-  width: 22px;
-  height: 22px;
-  margin-right: 8px;
-  background: url("../../images/price-shipping.svg") no-repeat;
-}
-
 @media screen and (max-width: 767.98px) {
   .informer {
     padding-left: 8px;

@@ -13,6 +13,6 @@
 
 @media screen and (max-width: 767.98px) {
   .counter__button {
-    padding: 0 5px 0 6px;
+    padding: 0;
   }
 }
