@@ -15,4 +15,8 @@
   .nav-bar__link:nth-of-type(3n) {
     margin-right: 0;
   }
+
+  .nav-bar__link:nth-of-type(3n) > svg {
+    fill: var(--system-magenta-color);
+  }
 }

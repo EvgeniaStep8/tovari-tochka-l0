@@ -91,13 +91,13 @@ export default class PopupWithDeliveryForm extends Popup {
     this._courierRadio.addEventListener("click", () => {
       this._delivery = "courier";
       this._updateRadio();
-      this._renderAdress();
+      this.render();
     });
 
     this._pointRadio.addEventListener("click", () => {
       this._delivery = "point";
       this._updateRadio();
-      this._renderPoint();
+      this.render();
     });
 
     this._form.addEventListener("submit", this._handleFormSubmit.bind(this));

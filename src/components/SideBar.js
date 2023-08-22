@@ -94,8 +94,10 @@ export default class SideBar {
   }
 
   render() {
-    this._price.textContent = this._sumPrice.toLocaleString();
-    this._oldPrice.textContent = `${this._sumOldPrice.toLocaleString()} сом`;
+    this._price.textContent = Math.floor(this._sumPrice).toLocaleString();
+    this._oldPrice.textContent = `${Math.floor(
+      this._sumOldPrice
+    ).toLocaleString()} сом`;
     this._count.textContent = `${this._sumCount} товара`;
     this._discount.textContent = `${(
       this._sumPrice - this._sumOldPrice

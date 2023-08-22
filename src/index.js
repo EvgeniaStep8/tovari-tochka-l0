@@ -29,9 +29,11 @@ const sumUpCountCheckedProducts = (products) => {
 };
 
 const sumUpPriceCheckedProducts = (products) => {
-  return products.reduce(
-    (prev, cur) => (cur.checked ? prev + cur.count * cur.price : prev + 0),
-    0
+  return Math.floor(
+    products.reduce(
+      (prev, cur) => (cur.checked ? prev + cur.count * cur.price : prev + 0),
+      0
+    )
   );
 };
 

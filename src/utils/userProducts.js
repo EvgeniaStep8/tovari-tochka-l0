@@ -57,7 +57,7 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    delivery: "7—8 февраля",
+    delivery: "5—6 февраля",
     price: 247,
     oldPrice: 475,
     checked: true,
