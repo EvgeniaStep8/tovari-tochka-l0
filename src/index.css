@@ -159,6 +159,7 @@
 @import url("./blocks/methods-pay/methods-pay.css");
 @import url("./blocks/methods-pay/__icon/methods__icon.css");
 @import url("./blocks/methods-pay/__text/methods-pay__text.css");
+@import url("./blocks/methods-pay/__system/methods-pay__system.css");
 /* submit-button */
 @import url("./blocks/submit-button/submit-button.css");
 /*side-bar*/
@@ -205,6 +206,7 @@
 @import url("./blocks/popup/popup.css");
 @import url("./blocks/popup/_opened/popup__opened.css");
 @import url("./blocks/popup/__container/popup__container.css");
+@import url("./blocks/popup/__container/_size/_small/popup__container_size_small.css");
 @import url("./blocks/popup/__header/popup__header.css");
 @import url("./blocks/popup/__title/popup__title.css");
 @import url("./blocks/popup/__form-title/popup__form-title.css");

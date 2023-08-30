@@ -4,8 +4,16 @@
   border-radius: 16px;
   background-color: var(--background-white-color);
   box-shadow: var(--common-element-shadow);
-  padding: 16px 24px;
+  padding: 16px 24px 23px;
   box-sizing: border-box;
+  margin-left: 313px;
+  margin-top: 177px;
+}
+
+@media screen and (max-width: 1023.98px) {
+  .popup__container {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 767.98px) {

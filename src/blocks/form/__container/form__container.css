@@ -1,5 +1,10 @@
 .form__container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 19px;
+  align-items: flex-start;
+  margin-bottom: 17px;
+}
+
+.form__container:last-of-type {
+  margin-bottom: 57px;
 }

@@ -1,8 +1,8 @@
 .radiobutton {
   position: relative;
   display: flex;
-  align-items: center;
-  margin-bottom: 19px;
+  margin-bottom: 15px;
+  margin-top: 2px;
   cursor: pointer;
 }
 
