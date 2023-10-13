@@ -180,45 +180,8 @@
               </div>
               <h3 class="delivery__title text">Стоимость доставки</h3>
               <p class="delivery__price text">Бесплатно</p>
-              <h3 class="delivery__title text">5—6 февраля</h3>
-              <ul class="delivery__products list">
-                <li class="delivery__item">
-                  <img
-                    src="<%=require('./images/product1.png')%>"
-                    alt="Футболка"
-                    class="delivery__image"
-                    id="product-1"
-                  />
-                </li>
-                <li class="delivery__item">
-                  <img
-                    src="<%=require('./images/product2.png')%>"
-                    alt="Чехол"
-                    class="delivery__image"
-                  />
-                  <p class="notify delivery__notify text">184</p>
-                </li>
-                <li class="delivery__item">
-                  <img
-                    src="<%=require('./images/product3.png')%>"
-                    alt="Карандаши"
-                    class="delivery__image"
-                  />
-                  <p class="notify delivery__notify text">2</p>
-                </li>
-              </ul>
-              <h3 class="delivery__title text">7—8 февраля</h3>
-              <ul class="delivery__products list">
-                <li class="delivery__item">
-                  <img
-                    src="<%=require('./images/product2.png')%>"
-                    alt="Чехол"
-                    class="delivery__image"
-                  />
-                  <p class="notify delivery__notify text">16</p>
-                </li>
-              </ul>
             </div>
+            <div class="delivery__product-container"></div>
             <div class="informer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -326,6 +289,7 @@
                   class="recipient__input"
                   placeholder="Телефон"
                   id="tel"
+                  maxlength="16"
                 />
                 <span class="recipient__input-error" id="tel-error"></span>
               </label>
@@ -531,6 +495,9 @@
           </button>
         </form>
       </div>
+    </div>
+    <div class="fav-notify fav-notify_hide">
+      <p class="text fav-notify__text">Товар добавлен в избранное</p>
     </div>
     <template id="card-template">
       <article class="card">
@@ -761,7 +728,9 @@
       <div class="form__container">
         <label class="radiobutton">
           <input type="radio" name="delivery" class="radiobutton__input" />
-          <span class="radiobutton__visible-radio"></span>
+          <span
+            class="radiobutton__visible-radio radiobutton__visible-radio_type_popup"
+          ></span>
           <span class="form__text">Бишкек, улица Табышалиева, 57</span>
         </label>
         <button class="form__delite-button button">
@@ -794,12 +763,24 @@
     <template id="pay-radio">
       <label class="radiobutton popup__radiobutton">
         <input type="radio" name="pay" class="radiobutton__input" />
-        <span class="radiobutton__visible-radio"></span>
+        <span class="radiobutton__visible-radio radiobutton__visible-radio_type_pay"></span>
         <div class="methods-pay">
           <div class="system methods-pay__system" id="radio-system"></div>
           <p class="form__text"></p>
         </div>
       </label>
+    </template>
+    <template id="delivery-row">
+      <div class="delivery__row">
+        <p class="delivery__date text"></p>
+        <div class="delivery__cards-container"></div>
+      </div>
+    </template>
+    <template id="delivery-card">
+      <div class="delivery__item">
+        <img src="#" alt="" class="delivery__image">
+        <p class="notify text delivery__notify"></p>
+      </div>
     </template>
   </body>
 </html>

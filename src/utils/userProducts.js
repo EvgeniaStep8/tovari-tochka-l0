@@ -15,7 +15,14 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    delivery: "5—6 февраля",
+    delivery: [
+      {
+        stockId: 1,
+        count: 1,
+        countInStock: 3,
+        date: "2023-02-04T21:00:00.000Z",
+      },
+    ],
     price: 522,
     oldPrice: 1051,
 
@@ -40,6 +47,20 @@ export const userProducts = [
     price: 10500.235,
     oldPrice: 11500.235,
     checked: true,
+    delivery: [
+      {
+        stockId: 2,
+        count: 184,
+        countInStock: 184,
+        date: "2023-02-04T21:00:00.000Z",
+      },
+      {
+        stockId: 3,
+        count: 16,
+        countInStock: 316,
+        date: "2023-02-06T21:00:00.000Z",
+      },
+    ]
   },
   {
     _id: 3,
@@ -57,7 +78,14 @@ export const userProducts = [
       adres:
         "129337, Москва, улица Красная Сосна, 2, корпус 1, стр. 1, помещение 2, офис 34",
     },
-    delivery: "5—6 февраля",
+    delivery: [
+      {
+        stockId: 1,
+        count: 2,
+        countInStock: 4,
+        date: "2023-02-04T21:00:00.000Z",
+      },
+    ],
     price: 247,
     oldPrice: 475,
     checked: true,

@@ -1,5 +1,6 @@
 export default class SideBar {
   constructor(
+    sideBarSelector,
     sumCount,
     sumPrice,
     sumOldPrice,
@@ -9,6 +10,7 @@ export default class SideBar {
     handleEditDeliveryClick,
     handleEditPayClick
   ) {
+    this._sideBar = document.querySelector(sideBarSelector);
     this._sumPrice = sumPrice;
     this._sumOldPrice = sumOldPrice;
     this._sumCount = sumCount;
@@ -78,9 +80,13 @@ export default class SideBar {
   }
 
   update(count, price, oldPrice) {
+    this._sideBar.classList.toggle('hide', !count);
+
     this._sumCount = count;
     this._sumPrice = price;
     this._sumOldPrice = oldPrice;
+
+    this._renderButton();
   }
 
   updateDelivery(delivery, adress) {
@@ -101,7 +107,7 @@ export default class SideBar {
     this._count.textContent = `${this._sumCount} товара`;
     this._discount.textContent = `${(
       this._sumPrice - this._sumOldPrice
-    ).toLocaleString()} сом`;
+    ).toLocaleString().replace("-", "−")} сом`;
 
     this._deliveryElement.textContent =
       this._delivery === "point"

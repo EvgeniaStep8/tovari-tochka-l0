@@ -15,6 +15,7 @@ import ProductCardActive from "./components/ProductCardActive.js";
 import SideBar from "./components/SideBar.js";
 import RecipientForm from "./components/RecipientForm.js";
 import InputValidator from "./components/InputValidator.js";
+import DeliveryRow from "./components/DeliveryRow.js";
 
 // Пустые массивы для товаров в наличии и неактивных товаров
 const products = [];
@@ -69,7 +70,7 @@ const updateBill = () => {
   return { count, price, oldPrice };
 };
 
-// Обработчики удаления карточки товара для активной и неактивной карточки, которые срабавыют при удалении товара или добавлении в избранное
+// Обработчики удаления карточки товара для активной и неактивной карточки, которые срабавыют при удалении товара
 const handleCardDelite = (id) => {
   // Находим индекс карточки с переданным id и удаляем товар с таким же id из массива
   const index = products.find((product) => product._id === id);
@@ -85,6 +86,7 @@ const handleCardDelite = (id) => {
   sideBar.render();
 
   productsHeaderNotify.updateNotify(products.length);
+  deliveryRow.update(products);
 };
 
 const handleNotAvailableCardDelite = (id) => {
@@ -97,11 +99,45 @@ const handleNotAvailableCardDelite = (id) => {
   productsHeaderNotAvailable.render();
 };
 
+// Обработчики добавления карточки товара в избранное для активной и неактивной карточки, карточка удаляется из корзины и появляется уведомление
+const handleToFav = (id) => {
+  handleCardDelite();
+
+  const notify = document.querySelector(".fav-notify");
+  notify.classList.remove("fav-notify_hide");
+
+  setTimeout(() => {
+    notify.classList.add("fav-notify_hide");
+  }, 500);
+};
+
+const handleNotAvailableToFav = (id) => {
+  handleNotAvailableCardDelite();
+
+  const notify = document.querySelector(".fav-notify");
+  notify.classList.remove("fav-notify_hide");
+
+  setTimeout(() => {
+    notify.classList.add("fav-notify_hide");
+  }, 500);
+};
+
 // Обработчик изменения количества товаров
 const handleCounterChange = (card, newCount) => {
   card.updatePrice(newCount);
-  products.filter((product) => product._id === card.getId())[0].count =
-    newCount;
+  const product = products.filter((product) => product._id === card.getId())[0];
+  const delta = product.count - newCount;
+  product.count = newCount;
+  if (product.delivery.length > 1) {
+    if (product.delivery[0].count >= newCount) {
+      product.delivery.pop();
+      product.delivery[0].count = newCount;
+    } else {
+      product.delivery[1].count -= delta;
+    }
+  } else {
+    product.delivery[0].count = newCount;
+  }
   const { count, price, oldPrice } = updateBill();
 
   productsHeaderActive.update(count, price);
@@ -109,6 +145,8 @@ const handleCounterChange = (card, newCount) => {
 
   sideBar.update(count, price, oldPrice);
   sideBar.render();
+
+  deliveryRow.update(products);
 };
 
 // Обработчик измения чекбокса выбора товара
@@ -125,6 +163,8 @@ const handleCheckboxChange = (card, isChecked) => {
 
   sideBar.update(count, price, oldPrice);
   sideBar.render();
+
+  deliveryRow.update(products);
 };
 
 // Обработчик изменения чекбокса выбрать всё
@@ -138,6 +178,8 @@ const handleCheckboxAllChange = (isChecked) => {
 
   sideBar.update(count, price, oldPrice);
   sideBar.render();
+
+  deliveryRow.update(products);
 };
 
 // Функция отрисровки активных и неактивных карточек
@@ -146,6 +188,7 @@ const renderCard = (item) => {
     item,
     "#card-template",
     handleCardDelite,
+    handleToFav,
     createCounter,
     handleCheckboxChange,
     handleCheckboxAllChange
@@ -157,7 +200,8 @@ const renderNotAvailableCard = (item) => {
   const card = new ProductCard(
     item,
     "#card-not-available-template",
-    handleNotAvailableCardDelite
+    handleNotAvailableCardDelite,
+    handleNotAvailableToFav
   );
   cardNotAvailableContainer.addCard(card.getCard());
 };
@@ -208,6 +252,13 @@ const handlePayFormChange = (cardId) => {
 
   sideBar.updatePay(payCard);
   sideBar.render();
+};
+
+const handleDeliteAddress = (key, id) => {
+  userInfo[key] = userInfo[key].filter((address) => {
+    return address.id !== id;
+  });
+  deliveryPopup.update(userInfo);
 };
 
 // Фильтруем массив userProducts, активные товары добавляем в products, неактивные в notAvailableProducts
@@ -271,6 +322,11 @@ const delivery = new Delivery(
 
 delivery.render();
 
+// Создаём экземпляр класса deliveryRow, отрисовываем его
+const deliveryRow = new DeliveryRow(products);
+deliveryRow.getDelivery();
+deliveryRow.render();
+
 // Создаём экземпляр класса pay, отрисовываем его и навешиваем слушатели событий
 const pay = new Pay(
   getPayCard(userInfo.payCards),
@@ -286,6 +342,7 @@ pay.setEventListeners();
 
 // Создаём экземпляр класса sideBar, отрисовываем его и навешиваем слушатели событий
 const sideBar = new SideBar(
+  ".side-bar",
   sumUpCountCheckedProducts(products),
   sumUpPriceCheckedProducts(products),
   sumUpOldPriceCheckedProducts(products),
@@ -339,8 +396,10 @@ emailInputValidator.validateInputByType("Проверьте адрес элек�
 telInputValidator.validateRequired("Укажите номер телефона");
 telInputValidator.formatTel();
 telInputValidator.validateTel("Формат: +7 999 999-99-99");
+telInputValidator.disableInputLetter();
 innInputValidator.validateRequired("Укажите ИНН");
 innInputValidator.validateInn("Проверьте ИНН");
+innInputValidator.disableInputNan();
 
 // Создаём экземпляры класса popup для оплаты и доставки, навешиваем на них слушатели событий
 const payPopup = new PopupWithPayForm(
@@ -362,7 +421,8 @@ const deliveryPopup = new PopupWithDeliveryForm(
   "#courier-way",
   "#point-way",
   userInfo,
-  handleDeliveryFormChange
+  handleDeliveryFormChange,
+  handleDeliteAddress
 );
 
 payPopup.render();

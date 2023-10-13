@@ -6,3 +6,11 @@
   cursor: pointer;
   margin-right: 8px;
 }
+
+.radiobutton__visible-radio_type_popup {
+  margin-top: 3px;
+}
+
+.radiobutton__visible-radio_type_pay {
+  margin-right: 6px;
+}

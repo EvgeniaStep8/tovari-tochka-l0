@@ -1,10 +1,10 @@
 .products {
-  padding-bottom: 37px;
+  padding-bottom: 39px;
 }
 
 @media screen and (max-width: 767.98px) {
   .products {
     padding: 0 16px;
-    margin-bottom: 15px;
+    margin-bottom: 21px;
   }
 }

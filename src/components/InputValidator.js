@@ -92,10 +92,23 @@ export default class InputValidator {
     });
   }
 
+  disableInputNan() {
+    this._input.addEventListener("input", () => {
+      this._input.value = this._input.value.replace(/[^\d]/g, '');
+    });
+  }
+
+  disableInputLetter() {
+    this._input.addEventListener("input", () => {
+      this._input.value = this._input.value.replace(/[A-Za-zА-Яа-яЁё]/g, '');
+    });
+  }
+
   validateRequired(errorMessage) {
     this._submit.addEventListener("click", () => {
       if (!this._isRequiredValid()) {
         this._handleError(errorMessage);
+        this._input.scrollIntoView();
         this._input.addEventListener("input", this._handleDeliteErrorRequirder);
       }
     });

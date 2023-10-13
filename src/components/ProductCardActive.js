@@ -18,6 +18,7 @@ export default class ProductCardActive extends ProductCard {
     },
     templateSelector,
     handleCardDelite,
+    handleToFav,
     createCounter,
     handleCheckboxChange,
     handleCheckboxAllChange
@@ -25,7 +26,8 @@ export default class ProductCardActive extends ProductCard {
     super(
       { name, image, color, size, _id },
       templateSelector,
-      handleCardDelite
+      handleCardDelite,
+      handleToFav
     );
     this._count = count;
     this._countInStock = countInStock;

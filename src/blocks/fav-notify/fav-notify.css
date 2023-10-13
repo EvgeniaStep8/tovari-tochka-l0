@@ -1,0 +1,9 @@
+.fav-notify {
+	position: fixed;
+	bottom: 80px;
+	left: 25%;
+	width: 50%;
+	background-color: white;
+	border-radius: 5px;
+	padding: 10px;
+}

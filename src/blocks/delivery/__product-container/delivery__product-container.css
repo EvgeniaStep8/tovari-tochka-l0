@@ -1,0 +1,13 @@
+.delivery__product-container {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+@media screen and (max-width: 767.98px) {
+	.delivery__product-container {
+		gap: 28px;
+		margin-bottom: 23px;
+	}
+}

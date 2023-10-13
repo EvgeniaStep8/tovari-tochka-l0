@@ -8,3 +8,10 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.system_type_popup {
+  margin-right: 2px;
+}
+.system_type_pay {
+  margin-right: 4px;
+}

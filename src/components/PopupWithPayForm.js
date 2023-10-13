@@ -18,6 +18,11 @@ export default class PopupWithPayForm extends Popup {
     this._handleFormChange = handleFormChange;
   }
 
+  open() {
+    super.open();
+    this.render();
+  }
+
   _getTemplate() {
     const cardElement = this._template.content
       .querySelector(".radiobutton")
@@ -30,16 +35,16 @@ export default class PopupWithPayForm extends Popup {
 
     switch (system) {
       case "mastercard":
-        className = "system system_type_mastercard";
+        className = "system methods-pay__system system_type_mastercard";
         break;
       case "visa":
-        className = "system system_type_visa";
+        className = "system methods-pay__system system_type_visa";
         break;
       case "maestro":
-        className = "system system_type_maestro";
+        className = "system methods-pay__system system_type_maestro";
         break;
       default:
-        className = "system";
+        className = "system methods-pay__system";
     }
 
     return className;
@@ -73,6 +78,8 @@ export default class PopupWithPayForm extends Popup {
   }
 
   render() {
+    this._container.innerHTML = "";
+
     this._cards.forEach((card) => {
       this._container.append(this._getCard(card));
     });
